@@ -1,0 +1,73 @@
+import { useState } from "react";
+import Dropzone from "../components/Dropzone";
+import ProgressBar from "../components/ProgressBar";
+import DownloadCard from "../components/DownloadCard";
+import { run } from "../tools/pdf-to-word/engine";
+import { usePageTitle } from "../lib/usePageTitle";
+import { useMetaDescription } from "../lib/useMetaDescription";
+import { useTrackToolVisit } from "../lib/useTrackToolVisit";
+import ErrorState from "../components/ErrorState";
+import ToolInfoFooter from "../components/ToolInfoFooter";
+
+export default function PdfToWordPage() {
+  usePageTitle("PDF to Word");
+  useMetaDescription("Convert PDF text into an editable Word document for free, right in your browser.");
+  useTrackToolVisit("pdf-to-word");
+  const [file, setFile] = useState<File | null>(null);
+  const [progress, setProgress] = useState<number | null>(null);
+  const [result, setResult] = useState<Blob | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  async function handleFiles(files: File[]) {
+    const f = files[0];
+    setFile(f);
+    setResult(null);
+    setError(null);
+    setProgress(0);
+    try {
+      const output = await run(f, {}, setProgress);
+      setResult(output);
+    } catch {
+      setError("Could not read this PDF. Make sure it's not password-protected or a scanned image.");
+    } finally {
+      setProgress(null);
+    }
+  }
+
+  function reset() {
+    setFile(null);
+    setResult(null);
+    setError(null);
+  }
+
+  return (
+    <div className="max-w-2xl mx-auto px-4 sm:px-6 py-10 sm:py-12">
+      <p className="font-mono text-[11px] uppercase tracking-wide text-primary">Convert</p>
+      <h1 className="font-display text-2xl sm:text-3xl font-semibold mt-1 mb-2">PDF to Word</h1>
+      <p className="text-sm text-text-dim mb-8">
+        Pulls the text out of a PDF into an editable .docx. Best for text-based PDFs — tables,
+        columns, and images aren't reproduced, only the words.
+      </p>
+
+      {!file && (
+        <Dropzone accept="application/pdf" onFiles={handleFiles} label="Drop a PDF or tap to browse" hint="" />
+      )}
+
+      {progress !== null && (
+        <div className="mt-6">
+          <ProgressBar pct={progress} label="Extracting text" />
+        </div>
+      )}
+
+      {error && <ErrorState message={error} />}
+
+      {result && file && (
+        <div className="mt-6">
+          <DownloadCard toolId="pdf-to-word" blob={result} filename={`${file.name.replace(/\.pdf$/i, "")}.docx`} onReset={reset} />
+        </div>
+      )}
+      <ToolInfoFooter toolId="pdf-to-word" />
+
+    </div>
+  );
+}
