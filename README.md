@@ -88,7 +88,7 @@ src/
 Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/nyako.git
+git clone https://github.com/garvboiiiii/nyako.git
 ```
 
 Go into the project
