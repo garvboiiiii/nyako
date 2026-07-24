@@ -230,18 +230,6 @@ export default function HomePage() {
           ))}
         </div>
       </section>
-
-      {/* CONTACT */}
-      <section id="contact" className="max-w-2xl mx-auto px-4 sm:px-6 py-16 sm:py-24 text-center scroll-mt-20">
-        <h2 className="font-display text-2xl sm:text-3xl font-bold mb-4">Missing a tool?</h2>
-        <p className="text-text-dim mb-8">We read every request and ship the ones people actually ask for.</p>
-        <a
-          href="mailto:hello@nyako.app"
-          className="inline-flex items-center gap-2 font-display text-sm bg-primary text-white px-5 py-3 rounded-full font-medium hover:brightness-110 hover:shadow-md transition-all focus-ring"
-        >
-          hello@nyako.app <ArrowRight size={15} />
-        </a>
-      </section>
     </>
   );
 }

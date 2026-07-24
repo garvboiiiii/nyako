@@ -1,5 +1,6 @@
 import html2canvas from "html2canvas";
 import { PDFDocument } from "pdf-lib";
+import DOMPurify from "dompurify";
 
 const A4_RATIO = 842 / 595; // height/width in points
 
@@ -23,7 +24,13 @@ export async function htmlToPdf(
   container.style.padding = "32px";
   container.style.fontFamily = "Arial, sans-serif";
   container.style.color = "#111111";
-  container.innerHTML = html;
+  // Word/Excel content is user-uploaded and gets converted to HTML by
+  // mammoth/SheetJS before landing here — sanitize before it ever touches
+  // the DOM so a crafted document can't run script via innerHTML. Default
+  // config is used deliberately: it already strips <script>, event-handler
+  // attributes, and javascript: URLs, while keeping the inline `style`
+  // attributes that table/heading formatting depends on.
+  container.innerHTML = DOMPurify.sanitize(html);
   document.body.appendChild(container);
 
   onProgress?.(15);
