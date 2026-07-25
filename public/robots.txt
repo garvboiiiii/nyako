@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nyako.app/sitemap.xml
+Sitemap: https://nyako.co.in/sitemap.xml
