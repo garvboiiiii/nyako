@@ -1,87 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nyako.app/</loc>
+    <loc>https://nyako.co.in/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://nyako.app/blog</loc>
+    <loc>https://nyako.co.in/blog</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nyako.app/tools/compress-image</loc>
+    <loc>https://nyako.co.in/tools/compress-image</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nyako.app/tools/transparent-image</loc>
+    <loc>https://nyako.co.in/tools/transparent-image</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nyako.app/tools/resize-image</loc>
+    <loc>https://nyako.co.in/tools/resize-image</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nyako.app/tools/crop-image</loc>
+    <loc>https://nyako.co.in/tools/crop-image</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nyako.app/tools/passport-photo</loc>
+    <loc>https://nyako.co.in/tools/passport-photo</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nyako.app/tools/ocr-image</loc>
+    <loc>https://nyako.co.in/tools/ocr-image</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nyako.app/tools/convert-image-format</loc>
+    <loc>https://nyako.co.in/tools/convert-image-format</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nyako.app/tools/image-to-pdf</loc>
+    <loc>https://nyako.co.in/tools/image-to-pdf</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nyako.app/tools/merge-pdf</loc>
+    <loc>https://nyako.co.in/tools/merge-pdf</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nyako.app/tools/split-pdf</loc>
+    <loc>https://nyako.co.in/tools/split-pdf</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nyako.app/tools/compress-pdf</loc>
+    <loc>https://nyako.co.in/tools/compress-pdf</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nyako.app/tools/pdf-to-images</loc>
+    <loc>https://nyako.co.in/tools/pdf-to-images</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nyako.app/tools/rotate-pdf</loc>
+    <loc>https://nyako.co.in/tools/rotate-pdf</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nyako.app/tools/delete-pdf-pages</loc>
+    <loc>https://nyako.co.in/tools/delete-pdf-pages</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nyako.app/tools/extract-pdf-pages</loc>
+    <loc>https://nyako.co.in/tools/extract-pdf-pages</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nyako.app/tools/pdf-to-word</loc>
+    <loc>https://nyako.co.in/tools/pdf-to-word</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nyako.app/tools/word-to-pdf</loc>
+    <loc>https://nyako.co.in/tools/word-to-pdf</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nyako.app/tools/excel-to-pdf</loc>
+    <loc>https://nyako.co.in/tools/excel-to-pdf</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nyako.app/tools/ppt-to-pdf</loc>
+    <loc>https://nyako.co.in/tools/ppt-to-pdf</loc>
     <priority>0.8</priority>
   </url>
 </urlset>
