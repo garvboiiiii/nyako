@@ -5,7 +5,7 @@ export interface PdfToImagesOptions {
   format: "image/jpeg" | "image/png";
 }
 
-export const defaultOptions: PdfToImagesOptions = { format: "image/jpeg" };
+export const defaultOptions: PdfToImagesOptions = { format: "image/png" };
 
 /**
  * Renders every page of a PDF to an image and returns a ZIP of the results
