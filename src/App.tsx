@@ -1,3 +1,8 @@
+import ScrollToTop from "./components/ScrollToTop";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
 import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
@@ -31,6 +36,13 @@ const WordToPdfPage = lazy(() => import("./pages/WordToPdfPage"));
 const ExcelToPdfPage = lazy(() => import("./pages/ExcelToPdfPage"));
 const PptToPdfPage = lazy(() => import("./pages/PptToPdfPage"));
 
+
+
+
+
+
+
+
 export default function App() {
   return (
     <ErrorBoundary>
@@ -39,7 +51,8 @@ export default function App() {
         <Header />
         <main className="flex-1">
           <Suspense fallback={<div className="max-w-2xl mx-auto px-4 py-12 text-sm text-text-dim">Loading tool…</div>}>
-            <Routes>
+          <ScrollToTop />
+           <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/tools/compress-image" element={<CompressImagePage />} />
@@ -62,6 +75,11 @@ export default function App() {
               <Route path="/tools/excel-to-pdf" element={<ExcelToPdfPage />} />
               <Route path="/tools/ppt-to-pdf" element={<PptToPdfPage />} />
               <Route path="*" element={<NotFoundPage />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/terms" element={<Terms />} />
+
             </Routes>
           </Suspense>
         </main>
