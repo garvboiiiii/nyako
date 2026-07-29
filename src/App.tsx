@@ -52,7 +52,8 @@ export default function App() {
         <main className="flex-1">
           <Suspense fallback={<div className="max-w-2xl mx-auto px-4 py-12 text-sm text-text-dim">Loading tool…</div>}>
           <ScrollToTop />
-           <Routes>
+          
+            <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/tools/compress-image" element={<CompressImagePage />} />
@@ -79,7 +80,6 @@ export default function App() {
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/terms" element={<Terms />} />
-
             </Routes>
           </Suspense>
         </main>
