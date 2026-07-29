@@ -1,10 +1,12 @@
+import { Suspense, lazy } from "react";
+import { Routes, Route } from "react-router-dom";
+
+// Standard Imports
 import ScrollToTop from "./components/ScrollToTop";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
-import { Suspense, lazy } from "react";
-import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import OfflineBanner from "./components/OfflineBanner";
@@ -36,26 +38,33 @@ const WordToPdfPage = lazy(() => import("./pages/WordToPdfPage"));
 const ExcelToPdfPage = lazy(() => import("./pages/ExcelToPdfPage"));
 const PptToPdfPage = lazy(() => import("./pages/PptToPdfPage"));
 
-
-
-
-
-
-
-
 export default function App() {
   return (
     <ErrorBoundary>
       <div className="min-h-screen flex flex-col">
+        {/* ScrollToTop moved outside Suspense so it triggers reliably on route changes */}
+        <ScrollToTop />
         <OfflineBanner />
         <Header />
+        
         <main className="flex-1">
-          <Suspense fallback={<div className="max-w-2xl mx-auto px-4 py-12 text-sm text-text-dim">Loading tool…</div>}>
-          <ScrollToTop />
-          
+          <Suspense 
+            fallback={
+              <div className="max-w-2xl mx-auto px-4 py-12 text-sm text-text-dim">
+                Loading tool…
+              </div>
+            }
+          >
             <Routes>
+              {/* Main Pages */}
               <Route path="/" element={<HomePage />} />
               <Route path="/blog" element={<BlogPage />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
+              
+              {/* Image Tools */}
               <Route path="/tools/compress-image" element={<CompressImagePage />} />
               <Route path="/tools/transparent-image" element={<TransparentImagePage />} />
               <Route path="/tools/resize-image" element={<ResizeImagePage />} />
@@ -63,6 +72,8 @@ export default function App() {
               <Route path="/tools/passport-photo" element={<PassportPhotoPage />} />
               <Route path="/tools/ocr-image" element={<OcrImagePage />} />
               <Route path="/tools/convert-image-format" element={<ConvertImageFormatPage />} />
+              
+              {/* PDF Tools */}
               <Route path="/tools/image-to-pdf" element={<ImageToPdfPage />} />
               <Route path="/tools/merge-pdf" element={<MergePdfPage />} />
               <Route path="/tools/split-pdf" element={<SplitPdfPage />} />
@@ -75,14 +86,13 @@ export default function App() {
               <Route path="/tools/word-to-pdf" element={<WordToPdfPage />} />
               <Route path="/tools/excel-to-pdf" element={<ExcelToPdfPage />} />
               <Route path="/tools/ppt-to-pdf" element={<PptToPdfPage />} />
+              
+              {/* Fallback */}
               <Route path="*" element={<NotFoundPage />} />
-              <Route path="/privacy" element={<Privacy />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/terms" element={<Terms />} />
             </Routes>
           </Suspense>
         </main>
+        
         <Footer />
       </div>
     </ErrorBoundary>
