@@ -1,28 +1,33 @@
 import { Link } from "react-router-dom";
-import { TOOLS } from "../lib/intent/dictionary";
-
 export default function Footer() {
   return (
-    <footer className="border-t border-line mt-20 bg-surface">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
-        <p className="font-display text-xs uppercase tracking-wide text-text-dim mb-4">
-          All tools
-        </p>
-        <div className="flex flex-wrap gap-x-6 gap-y-2">
-          {TOOLS.map((t) => (
-            <Link
-              key={t.id}
-              to={`/tools/${t.slug}`}
-              className="text-sm text-text-dim hover:text-ink transition focus-ring"
-            >
-              {t.title}
-            </Link>
-          ))}
+    <footer className="border-t border-gray-200 dark:border-neutral-800 mt-20">
+      <div className="max-w-7xl mx-auto px-6 py-8">
+
+        <div className="flex flex-wrap justify-center gap-6 text-sm">
+
+          <Link to="/privacy" className="hover:text-blue-600">
+            Privacy Policy
+          </Link>
+
+          <Link to="/terms" className="hover:text-blue-600">
+            Terms of Service
+          </Link>
+
+          <Link to="/about" className="hover:text-blue-600">
+            About Me
+          </Link>
+
+          <Link to="/contact" className="hover:text-blue-600">
+            Contact Us
+          </Link>
+
         </div>
-        <p className="text-xs text-text-dim mt-8">
-          Files are processed in your browser. Nothing is uploaded to a server.
+
+        <p className="mt-6 text-center text-sm text-gray-500">
+          © 2026 Nyako • No Login • No Watermarks • Privacy First
         </p>
+
       </div>
     </footer>
   );
-}
