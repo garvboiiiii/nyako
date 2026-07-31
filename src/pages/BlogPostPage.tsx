@@ -11,7 +11,7 @@ export default function BlogPostPage() {
 
   usePageTitle(post?.title ?? "Blog");
   useMetaDescription(post?.description ?? "");
-  useCanonicalUrl(`/blog/${slug ?? ""}`);
+
 
   if (!post) return <Navigate to="/blog" replace />;
 
