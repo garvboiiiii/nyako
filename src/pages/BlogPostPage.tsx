@@ -2,7 +2,6 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowRight, Clock, ArrowLeft } from "lucide-react";
 import { usePageTitle } from "../lib/usePageTitle";
 import { useMetaDescription } from "../lib/useMetaDescription";
-import { useCanonicalUrl } from "../lib/useCanonicalUrl";
 import { getPostBySlug } from "../content/blogPosts";
 import { getToolById } from "../lib/intent/dictionary";
 
