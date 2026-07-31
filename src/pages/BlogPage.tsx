@@ -7,7 +7,7 @@ import { BLOG_POSTS } from "../content/blogPosts";
 export default function BlogPage() {
   usePageTitle("Blog");
   useMetaDescription("Guides on file formats, compression, and getting document work done faster — from the team behind Nyako.");
-  useCanonicalUrl("/blog");
+  
 
   const sorted = [...BLOG_POSTS].sort(
     (a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
