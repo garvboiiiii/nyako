@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
+import { BookOpen } from "lucide-react";
 import { getToolById, getRelatedByCategory, CATEGORIES } from "../lib/intent/dictionary";
+import { BLOG_POSTS } from "../content/blogPosts";
 
 export default function ToolInfoFooter({ toolId }: { toolId: string }) {
-  const tool = getToolById(toolId);
-  if (!tool) return null;
+  const tool = getToolById(toolId);                                                       if (!tool) return null;
   const related = getRelatedByCategory(toolId, 4);
-
-  return (
+  const relatedPost = BLOG_POSTS.find((p) => p.relatedToolSlug === toolId);
+                                                                                          return (
     <div className="mt-12 space-y-10">
       {/* How it works */}
-      <section>
-        <h2 className="font-display text-sm uppercase tracking-wide text-text-dim mb-4">How it works</h2>
+      <section>                                                                                 <h2 className="font-display text-sm uppercase tracking-wide text-text-dim mb-4">How it works</h2>
         <ol className="grid sm:grid-cols-3 gap-4">
           {tool.howItWorks.map((step, i) => (
             <li key={i} className="rounded-xl border border-line bg-surface p-4">
@@ -47,6 +47,26 @@ export default function ToolInfoFooter({ toolId }: { toolId: string }) {
               </div>
             ))}
           </div>
+        </section>
+      )}
+
+      {/* Related guide */}
+      {relatedPost && (
+        <section>
+          <Link
+            to={`/blog/${relatedPost.slug}`}
+            className="flex items-center gap-3 rounded-xl border border-line bg-surface p-4 hover:border-primary/40 transition group"
+          >
+            <span className="w-9 h-9 shrink-0 rounded-lg bg-primary/10 flex items-center justify-center">
+              <BookOpen size={16} className="text-primary" />
+            </span>
+            <span>
+              <span className="block text-xs uppercase tracking-wide text-text-dim">Guide</span>
+              <span className="block font-display font-semibold text-sm group-hover:text-primary transition">
+                {relatedPost.title}
+              </span>
+            </span>
+          </Link>
         </section>
       )}
 
