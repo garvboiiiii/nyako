@@ -12,6 +12,7 @@ import OfflineBanner from "./components/OfflineBanner";
 import ErrorBoundary from "./components/ErrorBoundary";
 import HomePage from "./pages/HomePage";
 import BlogPage from "./pages/BlogPage";
+import BlogPostPage from "./pages/BlogPostPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 // Lazy-loaded: each tool's engine (pdf-lib, pdf.js, browser-image-compression, ...)
@@ -56,6 +57,7 @@ export default function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/blog" element={<BlogPage />} />
+              <Route path="/blog/:slug" element={<BlogPostPage />} />
               
               {/* Tool Routes */}
               <Route path="/tools/compress-image" element={<CompressImagePage />} />
