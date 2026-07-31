@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Clock } from "lucide-react";
 import { usePageTitle } from "../lib/usePageTitle";
 import { useMetaDescription } from "../lib/useMetaDescription";
-import { useCanonicalUrl } from "../lib/useCanonicalUrl";
 import { BLOG_POSTS } from "../content/blogPosts";
 
 export default function BlogPage() {
