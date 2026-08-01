@@ -9,12 +9,18 @@ import { useTrackToolVisit } from "../lib/useTrackToolVisit";
 import ErrorState from "../components/ErrorState";
 import ToolInfoFooter from "../components/ToolInfoFooter";
 import { useCanonicalUrl } from "../lib/useCanonicalUrl";
+import { useDroppedFile } from "../lib/useDroppedFile";
 
 export default function MergePdfPage() {
   usePageTitle("Merge PDF");
   useMetaDescription("Merge multiple PDF files into one document for free, entirely in your browser — no upload, no signup.");
   useTrackToolVisit("merge-pdf");
   useCanonicalUrl("/tools/merge-pdf");
+  useDroppedFile((file) => addFiles([file]));
+
+
+
+
   const [files, setFiles] = useState<File[]>([]);
   const [progress, setProgress] = useState<number | null>(null);
   const [result, setResult] = useState<Blob | null>(null);

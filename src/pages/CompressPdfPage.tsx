@@ -10,12 +10,14 @@ import { useTrackToolVisit } from "../lib/useTrackToolVisit";
 import ErrorState from "../components/ErrorState";
 import ToolInfoFooter from "../components/ToolInfoFooter";
 import { useCanonicalUrl } from "../lib/useCanonicalUrl";
+import { useDroppedFile } from "../lib/useDroppedFile";
 
 export default function CompressPdfPage() {
   usePageTitle("Compress PDF");
   useMetaDescription("Compress a PDF to a target file size for email or upload limits — free, private, works on scanned PDFs too.");
   useTrackToolVisit("compress-pdf");
   useCanonicalUrl("/tools/compress-pdf");
+  useDroppedFile((file) => handleFiles([file]));
   
   const [params] = useSearchParams();
   const targetParam = params.get("target");

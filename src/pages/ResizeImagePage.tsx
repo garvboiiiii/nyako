@@ -8,11 +8,15 @@ import { useMetaDescription } from "../lib/useMetaDescription";
 import { useTrackToolVisit } from "../lib/useTrackToolVisit";
 import ErrorState from "../components/ErrorState";
 import ToolInfoFooter from "../components/ToolInfoFooter";
+import { useCanonicalUrl } from "../lib/useCanonicalUrl";
+import { useDroppedFile } from "../lib/useDroppedFile";
 
 export default function ResizeImagePage() {
   usePageTitle("Resize Image");
   useMetaDescription("Resize any image to exact pixel dimensions, with or without locked aspect ratio. Free, private, instant.");
   useTrackToolVisit("resize-image");
+  useCanonicalUrl("/tools/resize-image");
+  useDroppedFile((file) => handleFiles([file]));
   const [file, setFile] = useState<File | null>(null);
   const [width, setWidth] = useState(800);
   const [height, setHeight] = useState(600);

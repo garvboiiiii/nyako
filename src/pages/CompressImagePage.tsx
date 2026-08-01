@@ -10,6 +10,7 @@ import { useTrackToolVisit } from "../lib/useTrackToolVisit";
 import ErrorState from "../components/ErrorState";
 import ToolInfoFooter from "../components/ToolInfoFooter";
 import { useCanonicalUrl } from "../lib/useCanonicalUrl";
+import { useDroppedFile } from "../lib/useDroppedFile";
 
 
 export default function CompressImagePage() {
@@ -17,6 +18,7 @@ export default function CompressImagePage() {
   useMetaDescription("Compress JPG, PNG, or WebP images to an exact target size in KB — free, no signup, runs entirely in your browser.");
   useTrackToolVisit("compress-image");
   useCanonicalUrl("/tools/compress-image");
+  useDroppedFile((file) => handleFiles([file]));
   const [params] = useSearchParams();
   const targetParam = params.get("target");
   const initialKB = targetParam ? Math.round(Number(targetParam) / 1024) : Math.round(defaultOptions.targetSizeMB * 1024);

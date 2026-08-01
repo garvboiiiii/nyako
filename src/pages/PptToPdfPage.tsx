@@ -8,11 +8,16 @@ import { useMetaDescription } from "../lib/useMetaDescription";
 import { useTrackToolVisit } from "../lib/useTrackToolVisit";
 import ErrorState from "../components/ErrorState";
 import ToolInfoFooter from "../components/ToolInfoFooter";
+import { useDroppedFile } from "../lib/useDroppedFile";
+import { useCanonicalUrl } from "../lib/useCanonicalUrl";
 
 export default function PptToPdfPage() {
   usePageTitle("PPT to PDF");
   useMetaDescription("Convert PowerPoint slide text to PDF pages for free, directly in your browser.");
   useTrackToolVisit("ppt-to-pdf");
+  useCanonicalUrl("/tools/ppt-to-pdf");
+  useDroppedFile((file) => handleFiles([file]));
+
   const [file, setFile] = useState<File | null>(null);
   const [progress, setProgress] = useState<number | null>(null);
   const [result, setResult] = useState<Blob | null>(null);

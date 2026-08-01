@@ -8,11 +8,17 @@ import { useMetaDescription } from "../lib/useMetaDescription";
 import { useTrackToolVisit } from "../lib/useTrackToolVisit";
 import ErrorState from "../components/ErrorState";
 import ToolInfoFooter from "../components/ToolInfoFooter";
+import { useDroppedFile } from "../lib/useDroppedFile";
+import { useCanonicalUrl } from "../lib/useCanonicalUrl";
 
 export default function SplitPdfPage() {
   usePageTitle("Split PDF");
   useMetaDescription("Split a PDF into individual page files, packaged as a ZIP — free, private, instant.");
   useTrackToolVisit("split-pdf");
+  useCanonicalUrl("/tools/split-pdf");
+  useDroppedFile((file) => handleFiles([file]));
+
+
   const [file, setFile] = useState<File | null>(null);
   const [progress, setProgress] = useState<number | null>(null);
   const [result, setResult] = useState<Blob | null>(null);

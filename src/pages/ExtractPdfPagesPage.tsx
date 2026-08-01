@@ -11,12 +11,14 @@ import { useTrackToolVisit } from "../lib/useTrackToolVisit";
 import ErrorState from "../components/ErrorState";
 import ToolInfoFooter from "../components/ToolInfoFooter";
 import { useCanonicalUrl } from "../lib/useCanonicalUrl";
+import { useDroppedFile } from "../lib/useDroppedFile";
 
 export default function ExtractPdfPagesPage() {
   usePageTitle("Extract PDF Pages");
   useMetaDescription("Extract specific pages from a PDF into a new file — free, private, works in your browser.");
   useTrackToolVisit("extract-pdf-pages");
   useCanonicalUrl("/tools/extract-pdf-pages");
+  useDroppedFile((file) => setFile(file));
   const [file, setFile] = useState<File | null>(null);
   const [pageCount, setPageCount] = useState<number | null>(null);
   const [pages, setPages] = useState("");

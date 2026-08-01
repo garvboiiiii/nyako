@@ -8,11 +8,15 @@ import { useMetaDescription } from "../lib/useMetaDescription";
 import { useTrackToolVisit } from "../lib/useTrackToolVisit";
 import ErrorState from "../components/ErrorState";
 import ToolInfoFooter from "../components/ToolInfoFooter";
+import { useCanonicalUrl } from "../lib/useCanonicalUrl";
+import { useDroppedFile } from "../lib/useDroppedFile";
 
 export default function TransparentImagePage() {
   usePageTitle("Transparent Signature");
   useMetaDescription("Turn a scanned signature or stamp into a transparent PNG. Adjust color, softness, and opacity — free and private.");
   useTrackToolVisit("transparent-image");
+  useCanonicalUrl("tools/transparent-image");
+  useDroppedFile((file) => handleFiles([file]));
   const [file, setFile] = useState<File | null>(null);
   const [keyColor, setKeyColor] = useState(defaultOptions.keyColor);
   const [tolerance, setTolerance] = useState(defaultOptions.tolerance);

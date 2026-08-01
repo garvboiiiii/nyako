@@ -9,11 +9,17 @@ import { useMetaDescription } from "../lib/useMetaDescription";
 import { useTrackToolVisit } from "../lib/useTrackToolVisit";
 import ErrorState from "../components/ErrorState";
 import ToolInfoFooter from "../components/ToolInfoFooter";
+import { useCanonicalUrl } from "../lib/useCanonicalUrl";
+import { useDroppedFile } from "../lib/useDroppedFile";
 
 export default function PassportPhotoPage() {
   usePageTitle("Passport Photo Maker");
   useMetaDescription("Make a passport, visa, or ID photo in the correct size for your country — free, private, no studio needed.");
   useTrackToolVisit("passport-photo");
+  useCanonicalUrl("/tools/passport-photo");
+  useDroppedFile((file) => handleFiles([file]));
+
+
   const [file, setFile] = useState<File | null>(null);
   const [presetId, setPresetId] = useState(PASSPORT_PRESETS[0].id);
   const preset = PASSPORT_PRESETS.find((p) => p.id === presetId)!;

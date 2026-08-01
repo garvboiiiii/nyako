@@ -11,6 +11,7 @@ import { useTrackToolVisit } from "../lib/useTrackToolVisit";
 import ErrorState from "../components/ErrorState";
 import ToolInfoFooter from "../components/ToolInfoFooter";
 import { useCanonicalUrl } from "../lib/useCanonicalUrl";
+import { useDroppedFile } from "../lib/useDroppedFile";
 
 
 export default function DeletePdfPagesPage() {
@@ -18,6 +19,7 @@ export default function DeletePdfPagesPage() {
   useMetaDescription("Delete specific pages from a PDF for free, directly in your browser — no upload required.");
   useTrackToolVisit("delete-pdf-pages");
   useCanonicalUrl("/tools/delete-pdf-pages");
+  useDroppedFile((file) => setFile(file));
   const [file, setFile] = useState<File | null>(null);
   const [pageCount, setPageCount] = useState<number | null>(null);
   const [pages, setPages] = useState("");

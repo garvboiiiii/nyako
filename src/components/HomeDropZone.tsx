@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { X } from "lucide-react";
 import { getToolIcon } from "../lib/icons";
 import { getToolById } from "../lib/intent/dictionary";
@@ -11,10 +11,10 @@ function suggestionsForType(file: File): { label: string; toolIds: string[] } {
   const name = file.name.toLowerCase();
 
   if (type.startsWith("image/")) {
-    return { label: "an image", toolIds: ["compress-image", "transparent-image", "resize-image", "crop-image", "convert-image-format", "image-to-pdf"] };
+    return { label: "an image", toolIds: ["compress-image", "transparent-image", "resize-image", "crop-image", "convert-image-format", "image-to-pdf","passport-photo","ocr-image"] };
   }
   if (type === "application/pdf" || name.endsWith(".pdf")) {
-    return { label: "a PDF", toolIds: ["compress-pdf", "merge-pdf", "split-pdf", "pdf-to-images", "pdf-to-word"] };
+    return { label: "a PDF", toolIds: ["compress-pdf", "merge-pdf", "split-pdf", "pdf-to-images", "pdf-to-word","delete-pdf-pages","extract-pdf-pages"] };
   }
   if (name.endsWith(".docx")) {
     return { label: "a Word document", toolIds: ["word-to-pdf"] };
@@ -35,8 +35,9 @@ function suggestionsForType(file: File): { label: string; toolIds: string[] } {
  * "automatically suggest relevant tools based on uploaded file type."
  */
 export default function HomeDropZone() {
+  const navigate = useNavigate();
   const [dragging, setDragging] = useState(false);
-  const [suggestion, setSuggestion] = useState<{ label: string; toolIds: string[] } | null>(null);
+  const [suggestion, setSuggestion] = useState<{ label: string; toolIds: string[]; file: File } | null>(null);
   const [dragDepth, setDragDepth] = useState(0);
 
   useEffect(() => {
@@ -61,7 +62,7 @@ export default function HomeDropZone() {
       const file = e.dataTransfer?.files?.[0];
       if (!file) return;
       const result = suggestionsForType(file);
-      setSuggestion(result);
+      setSuggestion({ ...result, file });
       track("drop_suggestion_shown", { fileType: file.type || "unknown" });
     }
 
@@ -119,14 +120,14 @@ export default function HomeDropZone() {
                 if (!tool) return null;
                 const Icon = getToolIcon(tool.iconName);
                 return (
-                  <Link
+                  <button
                     key={id}
-                    to={`/tools/${tool.slug}`}
+                    onClick={() => navigate(`/tools/${tool.slug}`, { state: { droppedFile: suggestion.file } })}
                     className="inline-flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full border border-line hover:border-primary/40 hover:text-primary transition focus-ring"
                   >
                     <Icon size={13} />
                     {tool.title}
-                  </Link>
+                  </button>
                 );
               })}
             </div>

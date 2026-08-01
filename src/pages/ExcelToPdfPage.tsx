@@ -9,12 +9,14 @@ import { useTrackToolVisit } from "../lib/useTrackToolVisit";
 import ErrorState from "../components/ErrorState";
 import ToolInfoFooter from "../components/ToolInfoFooter";
 import { useCanonicalUrl } from "../lib/useCanonicalUrl";
+import { useDroppedFile } from "../lib/useDroppedFile";
 
 export default function ExcelToPdfPage() {
   usePageTitle("Excel to PDF");
   useMetaDescription("Convert an Excel spreadsheet to PDF for free, right in your browser.");
   useTrackToolVisit("excel-to-pdf");
   useCanonicalUrl("/tools/excel-to-pdf");
+  useDroppedFile((file) => handleFiles([file]));
   const [file, setFile] = useState<File | null>(null);
   const [progress, setProgress] = useState<number | null>(null);
   const [result, setResult] = useState<Blob | null>(null);

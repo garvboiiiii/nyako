@@ -8,11 +8,17 @@ import { useMetaDescription } from "../lib/useMetaDescription";
 import { useTrackToolVisit } from "../lib/useTrackToolVisit";
 import ErrorState from "../components/ErrorState";
 import ToolInfoFooter from "../components/ToolInfoFooter";
+import { useDroppedFile } from "../lib/useDroppedFile";
+import { useCanonicalUrl } from "../lib/useCanonicalUrl";
+
 
 export default function WordToPdfPage() {
   usePageTitle("Word to PDF");
   useMetaDescription("Convert a Word document to PDF for free, directly in your browser — no upload, no signup.");
   useTrackToolVisit("word-to-pdf");
+  useCanonicalUrl("/tools/word-to-pdf");
+  useDroppedFile((file) => handleFiles([file]));
+
   const [file, setFile] = useState<File | null>(null);
   const [progress, setProgress] = useState<number | null>(null);
   const [result, setResult] = useState<Blob | null>(null);

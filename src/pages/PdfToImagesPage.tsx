@@ -8,11 +8,19 @@ import { useMetaDescription } from "../lib/useMetaDescription";
 import { useTrackToolVisit } from "../lib/useTrackToolVisit";
 import ErrorState from "../components/ErrorState";
 import ToolInfoFooter from "../components/ToolInfoFooter";
+import { useDroppedFile } from "../lib/useDroppedFile";
+import { useCanonicalUrl } from "../lib/useCanonicalUrl";
+
+
 
 export default function PdfToImagesPage() {
   usePageTitle("PDF to Images");
   useMetaDescription("Convert every page of a PDF into a JPG or PNG image, free and entirely in your browser.");
   useTrackToolVisit("pdf-to-images");
+  useCanonicalUrl("/tools/pdf-to-images");
+  useDroppedFile((file) => handleFiles([file]));
+
+
   const [file, setFile] = useState<File | null>(null);
   const [format, setFormat] = useState<PdfToImagesOptions["format"]>(defaultOptions.format);
   const [progress, setProgress] = useState<number | null>(null);
