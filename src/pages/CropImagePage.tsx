@@ -9,6 +9,7 @@ import { useMetaDescription } from "../lib/useMetaDescription";
 import { useTrackToolVisit } from "../lib/useTrackToolVisit";
 import ErrorState from "../components/ErrorState";
 import ToolInfoFooter from "../components/ToolInfoFooter";
+import { useCanonicalUrl } from "../lib/useCanonicalUrl";
 
 const DEFAULT_RECT: FractionalRect = { x: 0.1, y: 0.1, width: 0.8, height: 0.8 };
 
@@ -16,6 +17,7 @@ export default function CropImagePage() {
   usePageTitle("Crop Image");
   useMetaDescription("Crop any photo with a simple drag-to-select tool. Free, private, works entirely in your browser.");
   useTrackToolVisit("crop-image");
+  useCanonicalUrl("/tools/crop-image");
   const [file, setFile] = useState<File | null>(null);
   const [rect, setRect] = useState<FractionalRect>(DEFAULT_RECT);
   const [progress, setProgress] = useState<number | null>(null);

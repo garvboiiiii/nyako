@@ -3,8 +3,10 @@ import { ArrowRight } from "lucide-react";
 import NyakoMascot from "../components/NyakoMascot";
 import { usePageTitle } from "../lib/usePageTitle";
 
+
 export default function NotFoundPage() {
   usePageTitle("Page not found");
+
   return (
     <div className="max-w-md mx-auto px-4 py-24 text-center">
       <NyakoMascot state="error" size={100} className="mx-auto mb-6" />

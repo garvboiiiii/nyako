@@ -8,6 +8,8 @@ import { useMetaDescription } from "../lib/useMetaDescription";
 import { useTrackToolVisit } from "../lib/useTrackToolVisit";
 import ErrorState from "../components/ErrorState";
 import ToolInfoFooter from "../components/ToolInfoFooter";
+import { useCanonicalUrl } from "../lib/useCanonicalUrl";
+
 
 const FORMATS: ImageFormat[] = ["image/png", "image/jpeg", "image/webp"];
 
@@ -15,6 +17,7 @@ export default function ConvertImageFormatPage() {
   usePageTitle("Convert Image Format");
   useMetaDescription("Convert images between PNG, JPG, and WebP formats instantly and for free, right in your browser.");
   useTrackToolVisit("convert-image-format");
+  useCanonicalUrl("/tools/convert-image-format");
   const [file, setFile] = useState<File | null>(null);
   const [target, setTarget] = useState<ImageFormat>("image/jpeg");
   const [progress, setProgress] = useState<number | null>(null);

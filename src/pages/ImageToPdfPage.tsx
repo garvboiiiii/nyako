@@ -8,11 +8,13 @@ import { useMetaDescription } from "../lib/useMetaDescription";
 import { useTrackToolVisit } from "../lib/useTrackToolVisit";
 import ErrorState from "../components/ErrorState";
 import ToolInfoFooter from "../components/ToolInfoFooter";
+import { useCanonicalUrl } from "../lib/useCanonicalUrl";
 
 export default function ImageToPdfPage() {
   usePageTitle("Image to PDF");
   useMetaDescription("Combine unlimited JPG or PNG images into a single PDF, in your chosen order — free and private.");
   useTrackToolVisit("image-to-pdf");
+  useCanonicalUrl("/tools/image-to-pdf");
   const [files, setFiles] = useState<File[]>([]);
   const [progress, setProgress] = useState<number | null>(null);
   const [result, setResult] = useState<Blob | null>(null);

@@ -3,10 +3,12 @@ import { ArrowRight, Clock } from "lucide-react";
 import { usePageTitle } from "../lib/usePageTitle";
 import { useMetaDescription } from "../lib/useMetaDescription";
 import { BLOG_POSTS } from "../content/blogPosts";
+import { useCanonicalUrl } from "../lib/useCanonicalUrl";
 
 export default function BlogPage() {
   usePageTitle("Blog");
   useMetaDescription("Guides on file formats, compression, and getting document work done faster — from the team behind Nyako.");
+  useCanonicalUrl("/blog");
   
 
   const sorted = [...BLOG_POSTS].sort(

@@ -8,11 +8,13 @@ import { useMetaDescription } from "../lib/useMetaDescription";
 import { useTrackToolVisit } from "../lib/useTrackToolVisit";
 import ErrorState from "../components/ErrorState";
 import ToolInfoFooter from "../components/ToolInfoFooter";
+import { useCanonicalUrl } from "../lib/useCanonicalUrl";
 
 export default function OcrImagePage() {
   usePageTitle("OCR — Image to Text");
   useMetaDescription("Extract text from an image or scanned document with free browser-based OCR — no upload, works offline after first use.");
   useTrackToolVisit("ocr-image");
+  useCanonicalUrl("/tools/ocr-image");
   const [file, setFile] = useState<File | null>(null);
   const [progress, setProgress] = useState<number | null>(null);
   const [text, setText] = useState<string | null>(null);

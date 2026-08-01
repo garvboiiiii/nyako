@@ -10,11 +10,13 @@ import { useMetaDescription } from "../lib/useMetaDescription";
 import { useTrackToolVisit } from "../lib/useTrackToolVisit";
 import ErrorState from "../components/ErrorState";
 import ToolInfoFooter from "../components/ToolInfoFooter";
+import { useCanonicalUrl } from "../lib/useCanonicalUrl";
 
 export default function ExtractPdfPagesPage() {
   usePageTitle("Extract PDF Pages");
   useMetaDescription("Extract specific pages from a PDF into a new file — free, private, works in your browser.");
   useTrackToolVisit("extract-pdf-pages");
+  useCanonicalUrl("/tools/extract-pdf-pages");
   const [file, setFile] = useState<File | null>(null);
   const [pageCount, setPageCount] = useState<number | null>(null);
   const [pages, setPages] = useState("");

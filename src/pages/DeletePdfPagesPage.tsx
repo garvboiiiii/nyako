@@ -10,11 +10,14 @@ import { useMetaDescription } from "../lib/useMetaDescription";
 import { useTrackToolVisit } from "../lib/useTrackToolVisit";
 import ErrorState from "../components/ErrorState";
 import ToolInfoFooter from "../components/ToolInfoFooter";
+import { useCanonicalUrl } from "../lib/useCanonicalUrl";
+
 
 export default function DeletePdfPagesPage() {
   usePageTitle("Delete PDF Pages");
   useMetaDescription("Delete specific pages from a PDF for free, directly in your browser — no upload required.");
   useTrackToolVisit("delete-pdf-pages");
+  useCanonicalUrl("/tools/delete-pdf-pages");
   const [file, setFile] = useState<File | null>(null);
   const [pageCount, setPageCount] = useState<number | null>(null);
   const [pages, setPages] = useState("");

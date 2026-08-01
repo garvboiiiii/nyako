@@ -17,6 +17,7 @@ import ToolCard from "../components/ToolCard";
 import RecentAndFavorites from "../components/RecentAndFavorites";
 import HomeDropZone from "../components/HomeDropZone";
 import { TOOLS, CATEGORIES, type CategoryId } from "../lib/intent/dictionary";
+import { useCanonicalUrl } from "../lib/useCanonicalUrl";
 
 const SUGGESTION_CHIPS = [
   { label: "Compress Image", slug: "compress-image" },
@@ -64,6 +65,7 @@ const FAQS = [
 ];
 
 export default function HomePage() {
+  useCanonicalUrl("/");
   const location = useLocation();
   const [category, setCategory] = useState<CategoryId | null>(null);
 

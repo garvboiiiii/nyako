@@ -1,4 +1,8 @@
+import { useCanonicalUrl } from "../lib/useCanonicalUrl";
+
+
 export default function Contact() {
+  useCanonicalUrl("/contact");
   return (
     <main className="mx-auto max-w-4xl px-6 py-16">
       <h1 className="text-4xl font-bold mb-8">Contact</h1>

@@ -4,6 +4,8 @@ import { usePageTitle } from "../lib/usePageTitle";
 import { useMetaDescription } from "../lib/useMetaDescription";
 import { getPostBySlug } from "../content/blogPosts";
 import { getToolById } from "../lib/intent/dictionary";
+import { useCanonicalUrl } from "../lib/useCanonicalUrl";
+
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -11,6 +13,7 @@ export default function BlogPostPage() {
 
   usePageTitle(post?.title ?? "Blog");
   useMetaDescription(post?.description ?? "");
+  useCanonicalUrl(`/blog/${slug ?? ""}`);
 
 
   if (!post) return <Navigate to="/blog" replace />;
