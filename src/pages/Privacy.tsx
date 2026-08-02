@@ -1,4 +1,12 @@
+import { usePageTitle } from "../lib/usePageTitle";
+import { useMetaDescription } from "../lib/useMetaDescription";
+import { useCanonicalUrl } from "../lib/useCanonicalUrl";
 
+export default function Privacy() {
+  usePageTitle("Privacy Policy");
+  useMetaDescription("How Nyako handles your data — what stays on your device, and what our advertising partners collect.");
+  useCanonicalUrl("/privacy");
+  
 
 export default function Privacy() {
   return (
