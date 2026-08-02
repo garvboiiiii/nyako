@@ -1,3 +1,14 @@
+import { usePageTitle } from "../lib/usePageTitle";
+import { useMetaDescription } from "../lib/useMetaDescription";
+import { useCanonicalUrl } from "../lib/useCanonicalUrl";
+
+export default function Terms() {
+  usePageTitle("Terms of Service");
+  useMetaDescription("The terms for using Nyako's free browser-based file, image, and PDF tools.");
+  useCanonicalUrl("/terms");
+
+
+
 export default function Terms() {
   return (
     <main className="mx-auto max-w-4xl px-6 py-16">
