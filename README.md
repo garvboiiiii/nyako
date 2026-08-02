@@ -142,17 +142,6 @@ Instead of making users browse dozens of tools, Nyako lets them simply describe 
 - [x] Privacy-first Processing
 - [ ] OCR Improvements
 - [ ] Batch Processing
-- [ ] Browser Extension
-- [ ] PWA Support
-- [ ] AI-assisted Search
-
----
-
-## 🤝 Contributing
-
-Contributions, feature requests, and bug reports are welcome.
-
-Feel free to fork the repository and submit a pull request.
 
 ---
 
