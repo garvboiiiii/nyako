@@ -1,7 +1,11 @@
 import { useCanonicalUrl } from "../lib/useCanonicalUrl";
+import { usePageTitle } from "../lib/usePageTitle";
+import { useMetaDescription } from "../lib/useMetaDescription";
 
 export default function About() {
   useCanonicalUrl("/about");
+  usePageTitle("About");
+  useMetaDescription("Why we built Nyako — free, private, browser-based file tools.");
   return (
     <main className="mx-auto max-w-4xl px-6 py-16">
       <h1 className="text-4xl font-bold mb-8">About Nyako</h1>
