@@ -339,6 +339,181 @@ export const BLOG_POSTS: BlogPost[] = [
       </>
     ),
   },
+  {
+    slug: "resize-image-without-losing-quality",
+    title: "How to Resize an Image Without Losing Quality",
+    description:
+      "Stretching or shrinking an image the wrong way turns it blurry or pixelated. Here's how to resize correctly, whatever you're resizing for.",
+    publishDate: "2026-08-01",
+    readTimeMinutes: 4,
+    relatedToolSlug: "resize-image",
+    content: (
+      <>
+        <p>
+          Whether you're prepping a photo for a website, fitting an image into a form's upload
+          limit, or just need a smaller file to send, resizing seems simple — until the result
+          comes out looking stretched, squished, or fuzzy. Here's what actually causes that, and
+          how to avoid it.
+        </p>
+
+        <h2>The one rule that matters most: aspect ratio</h2>
+        <p>
+          Every image has a width-to-height ratio — a 1200×800 photo has a ratio of 3:2. If you
+          resize to a new width but pick a height that doesn't match that same ratio, the image
+          gets stretched or squashed out of shape. This is the single most common resizing mistake,
+          and it's why a good resize tool locks width and height together by default: change one,
+          and the other adjusts automatically to keep the image looking correct.
+        </p>
+
+        <h2>Shrinking vs. enlarging — very different outcomes</h2>
+        <p>
+          Making an image smaller is safe — you're just discarding detail that isn't needed at the
+          smaller size, and it stays sharp. Making an image <em>larger</em> than its original
+          resolution is where quality actually degrades: there's no real detail to add, so the
+          software has to invent pixels to fill the gap, which is what produces that soft, blurry
+          look on enlarged images. If you need a bigger image, the honest answer is that you need
+          a higher-resolution original — no resize tool can truly add detail that was never
+          captured.
+        </p>
+
+        <h2>How to do it</h2>
+        <ol>
+          <li>Know your target size before you start — a website banner, a form's required dimensions, a specific pixel width for social media.</li>
+          <li>Upload the image and enter the target width (or height).</li>
+          <li>Keep "maintain aspect ratio" on unless you specifically need to force a different shape.</li>
+          <li>Download and check the result at actual size — not zoomed in, since minor softness is invisible at normal viewing size but obvious when zoomed in.</li>
+        </ol>
+
+        <p>
+          Our <a href="/tools/resize-image">Resize Image tool</a> handles the aspect-ratio math
+          automatically and runs entirely in your browser — upload, set your dimensions, download.
+        </p>
+
+        <h2>A tip for social media and forms specifically</h2>
+        <p>
+          Many platforms and application forms specify exact pixel dimensions (like 1200×630 for a
+          social share image, or a specific size for a government form upload). When you know the
+          exact numbers required, enter them directly rather than guessing — it avoids the back
+          and forth of the platform rejecting your upload for being the wrong size.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "split-pdf-into-separate-pages",
+    title: "How to Split a PDF Into Separate Pages",
+    description:
+      "Sometimes you need one page out of a fifty-page PDF, not the whole thing. Here's how to split a document apart cleanly.",
+    publishDate: "2026-08-02",
+    readTimeMinutes: 3,
+    relatedToolSlug: "split-pdf",
+    content: (
+      <>
+        <p>
+          A long scanned PDF — a contract, a report, a bundle of forms — is convenient until you
+          need to send just one section of it to someone, without forwarding the entire document.
+          Splitting solves this by breaking every page into its own separate file.
+        </p>
+
+        <h2>Split vs. Extract — they sound similar but do different jobs</h2>
+        <p>
+          It's worth knowing the difference, since both show up as "PDF page" tools and it's easy
+          to grab the wrong one:
+        </p>
+        <ul>
+          <li><strong>Split</strong> turns every single page into its own separate PDF file — useful when you want each page as an independent document.</li>
+          <li><strong>Extract</strong> pulls out a specific range of pages (say, pages 3 to 7) into one new combined file — useful when you want a subset, not every page individually.</li>
+        </ul>
+        <p>
+          If you just need "page 4 by itself," split works and you pick out the one file you need
+          from the results. If you need "pages 4 through 9 together," extract is the more direct
+          tool for that.
+        </p>
+
+        <h2>How splitting works</h2>
+        <ol>
+          <li>Upload the PDF you want to break apart.</li>
+          <li>The tool processes every page into its own individual PDF file automatically — no need to specify which pages, since it's all of them.</li>
+          <li>Download comes as a ZIP file containing all the individual pages, named in order.</li>
+        </ol>
+
+        <p>
+          Our <a href="/tools/split-pdf">Split PDF tool</a> does this entirely in your browser —
+          upload once, and every page comes back as its own file in a single ZIP download.
+        </p>
+
+        <h2>A common use case</h2>
+        <p>
+          This comes up a lot with scanned multi-document batches — say you scanned ten different
+          receipts into one PDF file because that's what the scanner produced, but you actually
+          need each receipt as a separate file for an expense report. Splitting turns that one
+          scan into ten individual files in a few seconds, instead of re-scanning each one
+          separately.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "convert-pdf-to-word",
+    title: "How to Convert a PDF to Word (and What to Actually Expect)",
+    description:
+      "PDF-to-Word conversion has a reputation for mangling documents. Here's what it can realistically do, and how to get a usable result.",
+    publishDate: "2026-08-03",
+    readTimeMinutes: 4,
+    relatedToolSlug: "pdf-to-word",
+    content: (
+      <>
+        <p>
+          You've got a PDF and you need to actually edit the text in it — fix a typo, update a
+          number, rewrite a paragraph. PDFs aren't built to be edited directly, so the usual move
+          is converting to a Word document first. Here's what that process can and can't do.
+        </p>
+
+        <h2>What conversion actually does</h2>
+        <p>
+          A PDF-to-Word tool reads the text content out of the PDF and rebuilds it as editable
+          paragraphs in a .docx file. For a straightforward, mostly-text document — a letter, a
+          simple report, a form's text fields — this works well and gets you a fully editable file.
+        </p>
+
+        <h2>Where it gets harder</h2>
+        <p>
+          Complex layouts are the real challenge for any PDF-to-Word tool, not just ours — multi-
+          column text, precise page-break positions, embedded tables with specific formatting, and
+          images woven into the text flow are all things that get simplified or lost in translation,
+          because a PDF describes exact visual positions while Word describes flowing paragraphs —
+          they're fundamentally different ways of representing a page.
+        </p>
+        <p>
+          The other real limit: a <strong>scanned</strong> PDF (a photo of a page, saved as PDF)
+          has no actual text in it at all — just a picture that looks like text. No PDF-to-Word
+          tool can extract text that was never there in the first place; that needs OCR (optical
+          character recognition) first to read the words out of the image.
+        </p>
+
+        <h2>How to get the best result</h2>
+        <ol>
+          <li>Upload your PDF to a conversion tool.</li>
+          <li>It extracts the text content page by page into a new Word document.</li>
+          <li>Open the result in Word and expect to do some cleanup — reflowing a paragraph here, fixing spacing there — rather than a perfect, untouched replica.</li>
+        </ol>
+
+        <p>
+          Our <a href="/tools/pdf-to-word">PDF to Word tool</a> handles the text extraction
+          entirely in your browser and produces an editable .docx — realistically best for
+          text-heavy documents rather than complex, design-heavy layouts.
+        </p>
+
+        <h2>If the PDF is scanned, not typed</h2>
+        <p>
+          If your PDF is a scan (you'll know because you can't select/highlight text in it when
+          you open it), run it through an <a href="/tools/ocr-image">OCR tool</a> first to pull
+          the text out as actual characters, then work with that text directly — PDF-to-Word
+          conversion won't help until there's real text to extract.
+        </p>
+      </>
+    ),
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
