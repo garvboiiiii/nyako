@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Dropzone from "../components/Dropzone";
 import ProgressBar from "../components/ProgressBar";
 import DownloadCard from "../components/DownloadCard";
@@ -18,11 +18,20 @@ export default function ImageToPdfPage() {
   useCanonicalUrl("/tools/image-to-pdf");
   useDroppedFile((file) => addFiles([file]));
 
-
   const [files, setFiles] = useState<File[]>([]);
+  const [previews, setPreviews] = useState<string[]>([]);
   const [progress, setProgress] = useState<number | null>(null);
   const [result, setResult] = useState<Blob | null>(null);
   const [error, setError] = useState<string | null>(null);
+
+  // Thumbnail previews so it's obvious which photo is which while
+  // reordering — a filename alone (like "IMG_4821.jpg") tells you nothing
+  // about what's actually in it, but a thumbnail does at a glance.
+  useEffect(() => {
+    const urls = files.map((f) => URL.createObjectURL(f));
+    setPreviews(urls);
+    return () => urls.forEach((u) => URL.revokeObjectURL(u));
+  }, [files]);
 
   function addFiles(newFiles: File[]) {
     setFiles((prev) => [...prev, ...newFiles]);
@@ -84,21 +93,37 @@ export default function ImageToPdfPage() {
           />
 
           {files.length > 0 && (
-            <ul className="mt-4 space-y-2">
-              {files.map((f, i) => (
-                <li
-                  key={`${f.name}-${i}`}
-                  className="flex items-center justify-between gap-2 text-sm bg-surface border border-line rounded-md px-3 py-2"
-                >
-                  <span className="truncate">{i + 1}. {f.name}</span>
-                  <div className="flex items-center gap-1 shrink-0">
-                    <button onClick={() => move(i, -1)} aria-label={`Move ${f.name} up`} className="w-8 h-8 text-text-dim hover:text-ink focus-ring rounded">↑</button>
-                    <button onClick={() => move(i, 1)} aria-label={`Move ${f.name} down`} className="w-8 h-8 text-text-dim hover:text-ink focus-ring rounded">↓</button>
-                    <button onClick={() => removeFile(i)} aria-label={`Remove ${f.name}`} className="w-8 h-8 text-text-dim hover:text-red-600 focus-ring rounded">×</button>
-                  </div>
-                </li>
-              ))}
-            </ul>
+            <>
+              <p className="mt-4 text-xs text-text-dim">
+                Check the page order below — the first thumbnail becomes page 1. Use the arrows to
+                reorder if anything's out of place.
+              </p>
+              <ul className="mt-2 space-y-2">
+                {files.map((f, i) => (
+                  <li
+                    key={`${f.name}-${i}`}
+                    className="flex items-center gap-3 text-sm bg-surface border border-line rounded-md px-3 py-2"
+                  >
+                    <span className="shrink-0 w-7 h-7 rounded-full bg-primary/10 text-primary text-xs font-semibold flex items-center justify-center">
+                      {i + 1}
+                    </span>
+                    {previews[i] && (
+                      <img
+                        src={previews[i]}
+                        alt={`Preview of ${f.name}`}
+                        className="shrink-0 w-12 h-12 object-cover rounded-md border border-line bg-paper"
+                      />
+                    )}
+                    <span className="truncate flex-1 min-w-0">{f.name}</span>
+                    <div className="flex items-center gap-1 shrink-0">
+                      <button onClick={() => move(i, -1)} aria-label={`Move ${f.name} up`} className="w-8 h-8 text-text-dim hover:text-ink focus-ring rounded">↑</button>
+                      <button onClick={() => move(i, 1)} aria-label={`Move ${f.name} down`} className="w-8 h-8 text-text-dim hover:text-ink focus-ring rounded">↓</button>
+                      <button onClick={() => removeFile(i)} aria-label={`Remove ${f.name}`} className="w-8 h-8 text-text-dim hover:text-red-600 focus-ring rounded">×</button>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </>
           )}
 
           {files.length >= 1 && progress === null && (
@@ -126,7 +151,6 @@ export default function ImageToPdfPage() {
         </div>
       )}
       <ToolInfoFooter toolId="image-to-pdf" />
-
     </div>
   );
 }

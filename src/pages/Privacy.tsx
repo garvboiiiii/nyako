@@ -1,14 +1,6 @@
-import { usePageTitle } from "../lib/usePageTitle";
-import { useMetaDescription } from "../lib/useMetaDescription";
-import { useCanonicalUrl } from "../lib/useCanonicalUrl";
 
-
-  
 
 export default function Privacy() {
-  usePageTitle("Privacy Policy");
-  useMetaDescription("How Nyako handles your data — what stays on your device, and what our advertising partners collect.");
-  useCanonicalUrl("/privacy");
   return (
     <main className="min-h-screen bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100">
       <div className="mx-auto max-w-4xl px-6 py-16">

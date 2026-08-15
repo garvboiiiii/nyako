@@ -514,6 +514,295 @@ export const BLOG_POSTS: BlogPost[] = [
       </>
     ),
   },
+  {
+    slug: "how-to-crop-an-image",
+    title: "How to Crop an Image the Right Way",
+    description:
+      "Cropping seems trivial until you're staring at a selection box wondering exactly where to put it. Here's how to frame a crop that actually looks intentional.",
+    publishDate: "2026-08-05",
+    readTimeMinutes: 3,
+    relatedToolSlug: "crop-image",
+    content: (
+      <>
+        <p>
+          Cropping is the simplest edit there is — cut away everything outside a box — but getting
+          the box in the right place is where most people hesitate. A few basic ideas make it much
+          less guesswork.
+        </p>
+
+        <h2>Crop with a purpose, not just to remove clutter</h2>
+        <p>
+          Before dragging a selection box, decide what the crop is actually for. Cropping to remove
+          a distracting background is different from cropping to fit a specific platform's required
+          shape (square for a profile photo, wide for a banner) — know which one you're doing,
+          because it changes where the box should go.
+        </p>
+
+        <h2>The rule of thirds, in one sentence</h2>
+        <p>
+          If you're cropping a photo of a person or subject, avoid dead-centering them — placing
+          them slightly off-center (roughly a third of the way from one edge) tends to look more
+          natural and considered than a perfectly centered crop, which can feel static.
+        </p>
+
+        <h2>How to do it</h2>
+        <ol>
+          <li>Upload your image — a selection box appears automatically over it.</li>
+          <li>Drag the box to reposition it over the part you want to keep.</li>
+          <li>Drag the corner handle to resize the box until the framing looks right.</li>
+          <li>Download — only the selected area is exported, at full quality.</li>
+        </ol>
+
+        <p>
+          Our <a href="/tools/crop-image">Crop Image tool</a> keeps this simple on purpose — drag,
+          resize, download, all in your browser with nothing uploaded anywhere.
+        </p>
+
+        <h2>A common mistake</h2>
+        <p>
+          Cropping too tightly around a face or subject can look accidental rather than
+          intentional — leaving a little breathing room around the edges of your subject usually
+          reads better than a crop that clips right up against them.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "how-to-rotate-a-pdf",
+    title: "How to Rotate a PDF (Fixing Sideways Scans)",
+    description:
+      "A scanned page that comes out sideways or upside-down is one of the most common PDF annoyances. Here's the quick fix.",
+    publishDate: "2026-08-06",
+    readTimeMinutes: 2,
+    relatedToolSlug: "rotate-pdf",
+    content: (
+      <>
+        <p>
+          It happens to almost everyone who scans documents: the page feeds in the wrong way, and
+          the resulting PDF has one or more pages sideways or completely upside down. Rotating fixes
+          this without needing to re-scan anything.
+        </p>
+
+        <h2>90°, 180°, or 270° — which one do you need?</h2>
+        <ul>
+          <li><strong>90° or 270°</strong> — for a page that's sideways (text runs top-to-bottom instead of left-to-right).</li>
+          <li><strong>180°</strong> — for a page that's fully upside down.</li>
+        </ul>
+        <p>
+          If you're not sure which direction, just try one — if it makes things worse instead of
+          better, you'll immediately know to try the other direction instead.
+        </p>
+
+        <h2>Rotating just one page vs. the whole document</h2>
+        <p>
+          It's common for only one or two pages in an otherwise-correct scan to come out sideways
+          (usually because a page was fed into the scanner differently from the rest). A good rotate
+          tool lets you target specific page numbers instead of rotating everything, so you don't
+          accidentally flip pages that were already correct.
+        </p>
+
+        <h2>How to do it</h2>
+        <ol>
+          <li>Upload the PDF — the page count is detected so you know what you're working with.</li>
+          <li>Specify which pages need rotating — all of them, or just the specific ones that are off.</li>
+          <li>Pick the rotation angle and download the corrected file.</li>
+        </ol>
+
+        <p>
+          Our <a href="/tools/rotate-pdf">Rotate PDF tool</a> handles both cases — rotate
+          everything at once, or target just the pages that need it, entirely in your browser.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "convert-pdf-pages-to-images",
+    title: "How to Convert PDF Pages to Images (and Why You'd Want To)",
+    description:
+      "Sometimes a PDF page needs to become a JPG or PNG — for a presentation slide, a thumbnail, or dropping into an image editor. Here's how and when.",
+    publishDate: "2026-08-07",
+    readTimeMinutes: 3,
+    relatedToolSlug: "pdf-to-images",
+    content: (
+      <>
+        <p>
+          PDFs are great for documents, but sometimes you need a page as a plain image instead — to
+          paste into a slide deck, use as a thumbnail, or edit in an image tool that doesn't open
+          PDFs directly. Converting handles all of these.
+        </p>
+
+        <h2>Common reasons to convert a PDF page to an image</h2>
+        <ul>
+          <li><strong>Presentations</strong> — pasting a PDF page as an image into PowerPoint or Google Slides, since most slide tools don't embed PDFs cleanly.</li>
+          <li><strong>Thumbnails or previews</strong> — showing what a document looks like without making the viewer open the whole PDF.</li>
+          <li><strong>Further editing</strong> — bringing a page into an image editor (to annotate, crop, or combine with other images) when the editor doesn't support PDFs directly.</li>
+        </ul>
+
+        <h2>JPG or PNG — which to pick</h2>
+        <p>
+          JPG gives smaller files and works well for pages that are mostly scanned photos or
+          continuous-tone content. PNG is the better choice for pages with sharp text or line
+          diagrams, where JPG's compression can introduce a slight blur or artifacting around
+          crisp edges.
+        </p>
+
+        <h2>How to do it</h2>
+        <ol>
+          <li>Choose your output format (JPG or PNG) before uploading.</li>
+          <li>Upload the PDF — every page renders as its own image automatically.</li>
+          <li>Download — a single image if there's one page, or a ZIP file if there are several.</li>
+        </ol>
+
+        <p>
+          Our <a href="/tools/pdf-to-images">PDF to Images tool</a> does this entirely in your
+          browser, and works the same whether the PDF has real text or is a scanned document,
+          since it renders each page visually either way.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "turn-photos-into-a-pdf",
+    title: "How to Turn Photos Into a PDF (and Get the Page Order Right)",
+    description:
+      "Combining a stack of photos into one PDF is easy — the part people actually struggle with is getting them in the right order before converting.",
+    publishDate: "2026-08-08",
+    readTimeMinutes: 3,
+    relatedToolSlug: "image-to-pdf",
+    content: (
+      <>
+        <p>
+          Whether it's a set of scanned receipts, photographed pages from a notebook, or product
+          photos for a catalog, turning a batch of images into one shareable PDF is a common task.
+          The conversion itself is simple — the real challenge is usually just getting the order right.
+        </p>
+
+        <h2>Why order trips people up</h2>
+        <p>
+          When you select multiple files from your phone or computer, they often don't upload in
+          the order you'd expect — sometimes alphabetical by filename, sometimes by upload sequence,
+          rarely in the actual reading order you want. If a tool just stacks them in upload order
+          with no way to check or fix it, you end up with a PDF that reads out of sequence.
+        </p>
+
+        <h2>What to look for in a good image-to-PDF tool</h2>
+        <ul>
+          <li><strong>Visual thumbnails</strong> — so you can actually see which photo is which, not just a filename like "IMG_4821.jpg" that tells you nothing.</li>
+          <li><strong>Easy reordering</strong> — simple up/down controls (or drag-and-drop) to fix the sequence without starting over.</li>
+          <li><strong>No page limit surprises</strong> — the ability to add as many images as you actually need.</li>
+        </ul>
+
+        <h2>How to do it</h2>
+        <ol>
+          <li>Upload all your images at once, or add them in batches.</li>
+          <li>Check the thumbnail previews next to each filename — this is the easiest way to catch an out-of-order photo before converting.</li>
+          <li>Use the reorder arrows to fix anything that's out of sequence.</li>
+          <li>Convert and download one combined PDF, in the order you confirmed.</li>
+        </ol>
+
+        <p>
+          Our <a href="/tools/image-to-pdf">Image to PDF tool</a> shows a thumbnail next to every
+          file in the list specifically so this ordering step is quick and visual instead of
+          guesswork based on filenames.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "delete-pages-from-a-pdf",
+    title: "How to Delete Pages from a PDF",
+    description:
+      "A blank page, a duplicate scan, an irrelevant cover sheet — here's how to remove specific pages from a PDF without touching the rest.",
+    publishDate: "2026-08-09",
+    readTimeMinutes: 2,
+    relatedToolSlug: "delete-pdf-pages",
+    content: (
+      <>
+        <p>
+          Scanned documents pick up extra pages more often than you'd think — a blank page fed
+          through by accident, a duplicate of the same page scanned twice, a cover sheet that
+          doesn't need to be in the final file. Deleting specific pages cleans this up without
+          having to rebuild the whole document.
+        </p>
+
+        <h2>How to specify which pages to remove</h2>
+        <p>
+          A good delete-pages tool lets you type page numbers directly rather than clicking through
+          a page-by-page interface — commas for individual pages, dashes for ranges. For example,
+          "2,7,10-12" removes page 2, page 7, and pages 10 through 12 in a single pass.
+        </p>
+
+        <h2>What happens to the page numbers after deleting</h2>
+        <p>
+          Once pages are removed, everything after them shifts up to fill the gap — the same way
+          removing a physical page from a printed stack would. If you're deleting multiple pages in
+          one go, reference the page numbers from the <em>original</em> document, not a number you
+          expect after earlier deletions.
+        </p>
+
+        <h2>How to do it</h2>
+        <ol>
+          <li>Upload the PDF — the total page count is shown for reference.</li>
+          <li>Type the page numbers to remove, using commas and ranges as needed.</li>
+          <li>Download the edited file with those pages gone and everything else intact.</li>
+        </ol>
+
+        <p>
+          Our <a href="/tools/delete-pdf-pages">Delete PDF Pages tool</a> handles this entirely in
+          your browser — no page limit, no re-upload needed if you want to remove more afterward.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "extract-pages-from-a-pdf",
+    title: "How to Extract Specific Pages from a PDF",
+    description:
+      "Need just a few pages out of a long document, combined into their own file? Here's how extracting differs from splitting, and when to use which.",
+    publishDate: "2026-08-10",
+    readTimeMinutes: 2,
+    relatedToolSlug: "extract-pdf-pages",
+    content: (
+      <>
+        <p>
+          If you've got a 40-page report and only need pages 12 through 15 as their own shareable
+          file, extracting is the tool built for exactly that — pulling a chosen subset of pages
+          out into a new, combined PDF.
+        </p>
+
+        <h2>Extract vs. Split — worth knowing the difference</h2>
+        <p>
+          These two PDF-page tools get confused often because they sound similar:
+        </p>
+        <ul>
+          <li><strong>Extract</strong> pulls specific pages you choose into one new combined file.</li>
+          <li><strong>Split</strong> breaks every single page of the document into its own separate file, with no page selection involved.</li>
+        </ul>
+        <p>
+          If you want "just pages 3 to 7, together" — that's extract. If you want "every page as
+          its own file" — that's split.
+        </p>
+
+        <h2>How to specify a page range</h2>
+        <p>
+          Type the pages you want using commas for individual pages and dashes for ranges — "1,5,9-12"
+          keeps page 1, page 5, and pages 9 through 12, combined into a single new PDF in that order.
+        </p>
+
+        <h2>How to do it</h2>
+        <ol>
+          <li>Upload the PDF — the total page count is shown so you can reference numbers accurately.</li>
+          <li>Type the page numbers you want to keep.</li>
+          <li>Download a new PDF containing just those pages, in the order you specified.</li>
+        </ol>
+
+        <p>
+          Our <a href="/tools/extract-pdf-pages">Extract PDF Pages tool</a> runs the whole process
+          in your browser — upload, specify, download, with nothing sent to a server.
+        </p>
+      </>
+    ),
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {

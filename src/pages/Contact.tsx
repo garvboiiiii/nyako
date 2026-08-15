@@ -1,11 +1,8 @@
 import { useCanonicalUrl } from "../lib/useCanonicalUrl";
-import { usePageTitle } from "../lib/usePageTitle";
-import { useMetaDescription } from "../lib/useMetaDescription";
+
 
 export default function Contact() {
   useCanonicalUrl("/contact");
-  usePageTitle("Contact");
-  useMetaDescription("Get in touch with the Nyako team.");
   return (
     <main className="mx-auto max-w-4xl px-6 py-16">
       <h1 className="text-4xl font-bold mb-8">Contact</h1>
