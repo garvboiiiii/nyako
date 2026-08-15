@@ -268,12 +268,6 @@ export default function About() {
           </section>
 
         </div>
-
-        {/* Footer */}
-        <div className="mt-16 border-t border-neutral-200 pt-8 text-center text-sm text-neutral-500 dark:border-neutral-800 dark:text-neutral-400">
-          © 2026 Nyako · Built with privacy in mind.
-        </div>
-
       </div>
     </main>
   );

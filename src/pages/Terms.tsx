@@ -431,10 +431,6 @@ export default function Terms() {
 
         </div>
 
-        <div className="mt-16 border-t pt-8 text-center text-sm text-neutral-500">
-          © 2026 Nyako. Built with privacy in mind.
-        </div>
-
       </div>
     </main>
   );
