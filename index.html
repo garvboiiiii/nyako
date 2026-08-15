@@ -4,33 +4,108 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <meta name="google-adsense-account" content="ca-pub-6663361980769657">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6663361980769657"
-     crossorigin="anonymous"></script>
+
+    <!-- Google AdSense -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6663361980769657"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Google Analytics 4 -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-8Y6HLGQCB9"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag('js', new Date());
+      gtag('config', 'G-8Y6HLGQCB9');
+    </script>
+
     <meta name="theme-color" content="#2563eb" />
 
-    
-
-    <!-- Security: restricts what this page can load/execute. frame-ancestors,
-         X-Content-Type-Options, and Referrer-Policy can't be set via <meta> —
-         those are enforced via HTTP headers at the hosting layer, see
-         vercel.json / the _headers file included in this project. -->
+    <!--
+      Security: restricts what this page can load/execute.
+      frame-ancestors, X-Content-Type-Options, and Referrer-Policy
+      can't be set via <meta> and are enforced via HTTP headers
+      at the hosting layer.
+    -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self';
-               script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net;
-               style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-               font-src 'self' https://fonts.gstatic.com;
-               img-src 'self' data: blob: https://*.googlesyndication.com https://pagead2.googlesyndication.com https://*.doubleclick.net https://*.google.com;
-               frame-src 'self' https://googleads.g.doubleclick.net https://*.googlesyndication.com https://*.google.com;
-               connect-src 'self' https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net;
-               worker-src 'self' blob:;
-               object-src 'none';
-               base-uri 'self';
-               form-action 'self';
-               upgrade-insecure-requests"
+      content="
+        default-src 'self';
+
+        script-src
+          'self'
+          'unsafe-inline'
+          'wasm-unsafe-eval'
+          https://www.googletagmanager.com
+          https://www.google-analytics.com
+          https://*.google-analytics.com
+          https://pagead2.googlesyndication.com
+          https://*.googlesyndication.com
+          https://*.google.com
+          https://*.doubleclick.net;
+
+        style-src
+          'self'
+          'unsafe-inline'
+          https://fonts.googleapis.com;
+
+        font-src
+          'self'
+          https://fonts.gstatic.com;
+
+        img-src
+          'self'
+          data:
+          blob:
+          https://*.googlesyndication.com
+          https://pagead2.googlesyndication.com
+          https://*.doubleclick.net
+          https://*.google.com
+          https://*.google-analytics.com;
+
+        frame-src
+          'self'
+          https://googleads.g.doubleclick.net
+          https://*.googlesyndication.com
+          https://*.google.com
+          https://*.doubleclick.net;
+
+        connect-src
+          'self'
+          https://www.google-analytics.com
+          https://*.google-analytics.com
+          https://www.googletagmanager.com
+          https://pagead2.googlesyndication.com
+          https://*.googlesyndication.com
+          https://*.google.com
+          https://*.doubleclick.net;
+
+        worker-src
+          'self'
+          blob:;
+
+        object-src 'none';
+        base-uri 'self';
+        form-action 'self';
+        upgrade-insecure-requests;
+      "
     />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <meta
+      name="referrer"
+      content="strict-origin-when-cross-origin"
+    />
+
     <meta
       name="description"
       content="Nyako — free file, image, and PDF tools that run entirely in your browser. Compress, merge, convert, and sign files. No uploads, no signup, no watermarks."
@@ -39,36 +114,71 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Nyako" />
-    <meta property="og:title" content="Nyako — file, image & PDF tools that run in your browser" />
+    <meta
+      property="og:title"
+      content="Nyako — file, image & PDF tools that run in your browser"
+    />
     <meta
       property="og:description"
       content="Free file, image, and PDF tools that run entirely in your browser. No uploads, no signup, no watermarks."
     />
-    <meta property="og:url" content="https://nyako.co.in/" />
-    <meta property="og:image" content="https://nyako.co.in/og-image.png" />
+    <meta
+      property="og:url"
+      content="https://nyako.co.in/"
+    />
+    <meta
+      property="og:image"
+      content="https://nyako.co.in/og-image.png"
+    />
 
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Nyako — file, image & PDF tools that run in your browser" />
+    <meta
+      name="twitter:card"
+      content="summary_large_image"
+    />
+    <meta
+      name="twitter:title"
+      content="Nyako — file, image & PDF tools that run in your browser"
+    />
     <meta
       name="twitter:description"
       content="Free file, image, and PDF tools that run entirely in your browser. No uploads, no signup, no watermarks."
     />
-    <meta name="twitter:image" content="https://nyako.co.in/og-image.png" />
+    <meta
+      name="twitter:image"
+      content="https://nyako.co.in/og-image.png"
+    />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Fonts -->
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Theme initialization -->
     <script>
-      // Applied before paint to avoid a flash of the wrong theme.
-      if (localStorage.getItem("nyako-theme") === "dark" ||
-          (!localStorage.getItem("nyako-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+      if (
+        localStorage.getItem("nyako-theme") === "dark" ||
+        (
+          !localStorage.getItem("nyako-theme") &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+        )
+      ) {
         document.documentElement.classList.add("dark");
       }
     </script>
+
+    <!-- Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -77,14 +187,26 @@
         "url": "https://nyako.co.in/",
         "applicationCategory": "Utility",
         "operatingSystem": "Any (runs in browser)",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
         "description": "Free file, image, and PDF tools that run entirely in your browser. No uploads, no signup, no watermarks."
       }
     </script>
-    <title>Nyako | Free PDF, Image & File Tools | No Login, No Watermarks</title>
+
+    <title>
+      Nyako | Free PDF, Image & File Tools | No Login, No Watermarks
+    </title>
   </head>
+
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+
+    <script
+      type="module"
+      src="/src/main.tsx"
+    ></script>
   </body>
 </html>
