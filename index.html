@@ -5,7 +5,10 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="google-adsense-account" content="ca-pub-6663361980769657">
+    <meta
+      name="google-adsense-account"
+      content="ca-pub-6663361980769657"
+    />
 
     <!-- Google AdSense -->
     <script
@@ -21,85 +24,21 @@
     ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
+
       function gtag() {
         dataLayer.push(arguments);
       }
 
-      gtag('js', new Date());
-      gtag('config', 'G-8Y6HLGQCB9');
+      gtag("js", new Date());
+      gtag("config", "G-8Y6HLGQCB9");
     </script>
 
     <meta name="theme-color" content="#2563eb" />
 
     <!--
-      Security: restricts what this page can load/execute.
-      frame-ancestors, X-Content-Type-Options, and Referrer-Policy
-      can't be set via <meta> and are enforced via HTTP headers
-      at the hosting layer.
+      Security headers and Content-Security-Policy are enforced
+      through the hosting layer (_headers).
     -->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="
-        default-src 'self';
-
-        script-src
-          'self'
-          'unsafe-inline'
-          'wasm-unsafe-eval'
-          https://www.googletagmanager.com
-          https://www.google-analytics.com
-          https://*.google-analytics.com
-          https://pagead2.googlesyndication.com
-          https://*.googlesyndication.com
-          https://*.google.com
-          https://*.doubleclick.net;
-
-        style-src
-          'self'
-          'unsafe-inline'
-          https://fonts.googleapis.com;
-
-        font-src
-          'self'
-          https://fonts.gstatic.com;
-
-        img-src
-          'self'
-          data:
-          blob:
-          https://*.googlesyndication.com
-          https://pagead2.googlesyndication.com
-          https://*.doubleclick.net
-          https://*.google.com
-          https://*.google-analytics.com;
-
-        frame-src
-          'self'
-          https://googleads.g.doubleclick.net
-          https://*.googlesyndication.com
-          https://*.google.com
-          https://*.doubleclick.net;
-
-        connect-src
-          'self'
-          https://www.google-analytics.com
-          https://*.google-analytics.com
-          https://www.googletagmanager.com
-          https://pagead2.googlesyndication.com
-          https://*.googlesyndication.com
-          https://*.google.com
-          https://*.doubleclick.net;
-
-        worker-src
-          'self'
-          blob:;
-
-        object-src 'none';
-        base-uri 'self';
-        form-action 'self';
-        upgrade-insecure-requests;
-      "
-    />
 
     <meta
       name="referrer"
@@ -114,18 +53,22 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Nyako" />
+
     <meta
       property="og:title"
       content="Nyako — file, image & PDF tools that run in your browser"
     />
+
     <meta
       property="og:description"
       content="Free file, image, and PDF tools that run entirely in your browser. No uploads, no signup, no watermarks."
     />
+
     <meta
       property="og:url"
       content="https://nyako.co.in/"
     />
+
     <meta
       property="og:image"
       content="https://nyako.co.in/og-image.png"
@@ -136,14 +79,17 @@
       name="twitter:card"
       content="summary_large_image"
     />
+
     <meta
       name="twitter:title"
       content="Nyako — file, image & PDF tools that run in your browser"
     />
+
     <meta
       name="twitter:description"
       content="Free file, image, and PDF tools that run entirely in your browser. No uploads, no signup, no watermarks."
     />
+
     <meta
       name="twitter:image"
       content="https://nyako.co.in/og-image.png"
@@ -154,6 +100,7 @@
       rel="preconnect"
       href="https://fonts.googleapis.com"
     />
+
     <link
       rel="preconnect"
       href="https://fonts.gstatic.com"
