@@ -5,6 +5,7 @@ import { useMetaDescription } from "../lib/useMetaDescription";
 import { getPostBySlug } from "../content/blogPosts";
 import { getToolById } from "../lib/intent/dictionary";
 import { useCanonicalUrl } from "../lib/useCanonicalUrl";
+import { getBlogEnhancement } from "../content/blogEnhancements";
 
 
 export default function BlogPostPage() {
@@ -43,6 +44,7 @@ export default function BlogPostPage() {
         [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:space-y-1
         [&_a]:text-primary [&_a]:hover:underline [&_strong]:text-ink [&_strong]:font-semibold">
         {post.content}
+        {getBlogEnhancement(post.slug)}
       </div>
 
       {relatedTool && (

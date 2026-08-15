@@ -17,7 +17,7 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "Most email providers cap attachments around 25MB. Here's how to shrink a PDF down to size without turning your text into mush.",
     publishDate: "2026-07-20",
-    readTimeMinutes: 4,
+    readTimeMinutes: 6,
     relatedToolSlug: "compress-pdf",
     content: (
       <>
@@ -79,7 +79,7 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "Three formats, three very different jobs. Here's a plain-language breakdown of when to use each one — and how to convert between them in seconds.",
     publishDate: "2026-07-22",
-    readTimeMinutes: 5,
+    readTimeMinutes: 7,
     relatedToolSlug: "convert-image-format",
     content: (
       <>
@@ -142,7 +142,7 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "Skip the photo booth. Here's how to get a compliant passport or visa photo with just your phone and a plain wall.",
     publishDate: "2026-07-24",
-    readTimeMinutes: 4,
+    readTimeMinutes: 6,
     relatedToolSlug: "passport-photo",
     content: (
       <>
@@ -198,7 +198,7 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "Combining scattered PDFs — invoices, scanned forms, chapters of a report — into a single file, in the right order, without installing anything.",
     publishDate: "2026-07-27",
-    readTimeMinutes: 3,
+    readTimeMinutes: 5,
     relatedToolSlug: "merge-pdf",
     content: (
       <>
@@ -247,7 +247,7 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "A scanned signature usually comes with a white or off-white background that looks obviously pasted-on. Here's how to make it truly transparent.",
     publishDate: "2026-07-28",
-    readTimeMinutes: 3,
+    readTimeMinutes: 5,
     relatedToolSlug: "transparent-image",
     content: (
       <>
@@ -298,7 +298,7 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "Turning a photo of a page into text you can actually copy, search, and edit — what OCR does, and how to get the cleanest results.",
     publishDate: "2026-07-29",
-    readTimeMinutes: 4,
+    readTimeMinutes: 6,
     relatedToolSlug: "ocr-image",
     content: (
       <>
@@ -345,7 +345,7 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "Stretching or shrinking an image the wrong way turns it blurry or pixelated. Here's how to resize correctly, whatever you're resizing for.",
     publishDate: "2026-08-01",
-    readTimeMinutes: 4,
+    readTimeMinutes: 6,
     relatedToolSlug: "resize-image",
     content: (
       <>
@@ -405,7 +405,7 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "Sometimes you need one page out of a fifty-page PDF, not the whole thing. Here's how to split a document apart cleanly.",
     publishDate: "2026-08-02",
-    readTimeMinutes: 3,
+    readTimeMinutes: 5,
     relatedToolSlug: "split-pdf",
     content: (
       <>
@@ -459,7 +459,7 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "PDF-to-Word conversion has a reputation for mangling documents. Here's what it can realistically do, and how to get a usable result.",
     publishDate: "2026-08-03",
-    readTimeMinutes: 4,
+    readTimeMinutes: 6,
     relatedToolSlug: "pdf-to-word",
     content: (
       <>
@@ -520,7 +520,7 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "Cropping seems trivial until you're staring at a selection box wondering exactly where to put it. Here's how to frame a crop that actually looks intentional.",
     publishDate: "2026-08-05",
-    readTimeMinutes: 3,
+    readTimeMinutes: 5,
     relatedToolSlug: "crop-image",
     content: (
       <>
@@ -573,7 +573,7 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "A scanned page that comes out sideways or upside-down is one of the most common PDF annoyances. Here's the quick fix.",
     publishDate: "2026-08-06",
-    readTimeMinutes: 2,
+    readTimeMinutes: 4,
     relatedToolSlug: "rotate-pdf",
     content: (
       <>
@@ -621,7 +621,7 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "Sometimes a PDF page needs to become a JPG or PNG — for a presentation slide, a thumbnail, or dropping into an image editor. Here's how and when.",
     publishDate: "2026-08-07",
-    readTimeMinutes: 3,
+    readTimeMinutes: 5,
     relatedToolSlug: "pdf-to-images",
     content: (
       <>
@@ -667,7 +667,7 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "Combining a stack of photos into one PDF is easy — the part people actually struggle with is getting them in the right order before converting.",
     publishDate: "2026-08-08",
-    readTimeMinutes: 3,
+    readTimeMinutes: 5,
     relatedToolSlug: "image-to-pdf",
     content: (
       <>
@@ -714,7 +714,7 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "A blank page, a duplicate scan, an irrelevant cover sheet — here's how to remove specific pages from a PDF without touching the rest.",
     publishDate: "2026-08-09",
-    readTimeMinutes: 2,
+    readTimeMinutes: 4,
     relatedToolSlug: "delete-pdf-pages",
     content: (
       <>
@@ -760,7 +760,7 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       "Need just a few pages out of a long document, combined into their own file? Here's how extracting differs from splitting, and when to use which.",
     publishDate: "2026-08-10",
-    readTimeMinutes: 2,
+    readTimeMinutes: 4,
     relatedToolSlug: "extract-pdf-pages",
     content: (
       <>

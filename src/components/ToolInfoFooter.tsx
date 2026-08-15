@@ -1,16 +1,24 @@
 import { Link } from "react-router-dom";
-import { BookOpen } from "lucide-react";
+import { BookOpen, CheckCircle2, Lightbulb, ShieldCheck } from "lucide-react";
 import { getToolById, getRelatedByCategory, CATEGORIES } from "../lib/intent/dictionary";
 import { BLOG_POSTS } from "../content/blogPosts";
 
 export default function ToolInfoFooter({ toolId }: { toolId: string }) {
-  const tool = getToolById(toolId);                                                       if (!tool) return null;
+  const tool = getToolById(toolId);
+  if (!tool) return null;
+
   const related = getRelatedByCategory(toolId, 4);
   const relatedPost = BLOG_POSTS.find((p) => p.relatedToolSlug === toolId);
-                                                                                          return (
+
+  return (
     <div className="mt-12 space-y-10">
-      {/* How it works */}
-      <section>                                                                                 <h2 className="font-display text-sm uppercase tracking-wide text-text-dim mb-4">How it works</h2>
+      <section>
+        <h2 className="font-display text-xl font-semibold text-ink mb-3">{tool.title}: what this tool does</h2>
+        <p className="text-sm text-text-dim leading-relaxed max-w-3xl">{tool.longDescription}</p>
+      </section>
+
+      <section>
+        <h2 className="font-display text-sm uppercase tracking-wide text-text-dim mb-4">How it works</h2>
         <ol className="grid sm:grid-cols-3 gap-4">
           {tool.howItWorks.map((step, i) => (
             <li key={i} className="rounded-xl border border-line bg-surface p-4">
@@ -21,7 +29,18 @@ export default function ToolInfoFooter({ toolId }: { toolId: string }) {
         </ol>
       </section>
 
-      {/* Supported formats */}
+      <section>
+        <h2 className="font-display text-sm uppercase tracking-wide text-text-dim mb-4">When this tool is useful</h2>
+        <ul className="grid sm:grid-cols-3 gap-3">
+          {tool.whyUseIt.map((item) => (
+            <li key={item} className="rounded-xl border border-line bg-surface p-4 flex gap-3 text-sm text-text-dim leading-relaxed">
+              <CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
       {tool.supportedFormats.length > 0 && (
         <section>
           <h2 className="font-display text-sm uppercase tracking-wide text-text-dim mb-4">Supported formats</h2>
@@ -35,10 +54,27 @@ export default function ToolInfoFooter({ toolId }: { toolId: string }) {
         </section>
       )}
 
-      {/* FAQ */}
+      <section className="rounded-2xl border border-line bg-surface p-5 sm:p-6">
+        <div className="flex items-center gap-2 mb-3">
+          <Lightbulb size={17} className="text-primary" />
+          <h2 className="font-display text-sm uppercase tracking-wide text-text-dim">Tips for better results</h2>
+        </div>
+        <ul className="list-disc pl-5 space-y-2 text-sm text-text-dim leading-relaxed">
+          {tool.tips.map((tip) => <li key={tip}>{tip}</li>)}
+        </ul>
+      </section>
+
+      <section className="rounded-2xl border border-line bg-surface p-5 sm:p-6">
+        <div className="flex items-center gap-2 mb-3">
+          <ShieldCheck size={17} className="text-primary" />
+          <h2 className="font-display text-sm uppercase tracking-wide text-text-dim">What to expect</h2>
+        </div>
+        <p className="text-sm text-text-dim leading-relaxed">{tool.limitations}</p>
+      </section>
+
       {tool.faq.length > 0 && (
         <section>
-          <h2 className="font-display text-sm uppercase tracking-wide text-text-dim mb-4">FAQ</h2>
+          <h2 className="font-display text-sm uppercase tracking-wide text-text-dim mb-4">Frequently asked questions</h2>
           <div className="divide-y divide-line rounded-xl border border-line bg-surface overflow-hidden">
             {tool.faq.map((f) => (
               <div key={f.q} className="p-4">
@@ -50,7 +86,6 @@ export default function ToolInfoFooter({ toolId }: { toolId: string }) {
         </section>
       )}
 
-      {/* Related guide */}
       {relatedPost && (
         <section>
           <Link
@@ -61,16 +96,13 @@ export default function ToolInfoFooter({ toolId }: { toolId: string }) {
               <BookOpen size={16} className="text-primary" />
             </span>
             <span>
-              <span className="block text-xs uppercase tracking-wide text-text-dim">Guide</span>
-              <span className="block font-display font-semibold text-sm group-hover:text-primary transition">
-                {relatedPost.title}
-              </span>
+              <span className="block text-xs uppercase tracking-wide text-text-dim">Related guide</span>
+              <span className="block font-display font-semibold text-sm group-hover:text-primary transition">{relatedPost.title}</span>
             </span>
           </Link>
         </section>
       )}
 
-      {/* Related tools */}
       {related.length > 0 && (
         <section>
           <h2 className="font-display text-sm uppercase tracking-wide text-text-dim mb-4">

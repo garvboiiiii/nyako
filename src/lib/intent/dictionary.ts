@@ -40,6 +40,11 @@ export interface ToolDefinition {
   supportedFormats: string[];
   howItWorks: [string, string, string];
   faq: { q: string; a: string }[];
+  /** substantial on-page content rendered below the tool UI */
+  longDescription: string;
+  whyUseIt: string[];
+  tips: string[];
+  limitations: string;
 }
 
 export const TOOLS: ToolDefinition[] = [
@@ -77,6 +82,18 @@ export const TOOLS: ToolDefinition[] = [
       "photo size kam karo",
       "image ka size kam karo",
     ],
+    longDescription: "Reduce JPG, PNG, or WebP images when a website, form, email, or upload portal expects a smaller file. Nyako works toward a target file size instead of making you guess a compression percentage, and it processes the image locally in your browser.",
+    whyUseIt: [
+      "When a form says the image must be under a particular KB limit.",
+      "When a photo is too large to email or upload.",
+      "When you want a smaller web image without manually testing dozens of quality settings.",
+    ],
+    tips: [
+      "Start with a realistic target instead of an extremely small one.",
+      "For photographs, JPG or WebP is usually more size-efficient than PNG.",
+      "Check the final image at 100% zoom when text or fine detail matters.",
+    ],
+    limitations: "Compression is a quality-versus-size tradeoff. Very aggressive targets may require lower quality or dimensions, and the exact target may not always be reachable without making the image unusable.",
   },
   {
     id: "transparent-image",
@@ -111,6 +128,18 @@ export const TOOLS: ToolDefinition[] = [
       "image transparent karo",
       "remove white background",
     ],
+    longDescription: "Turn a scanned signature, stamp, logo, or other image with a plain background into a transparent PNG. The tool removes a selected flat background color and can adjust tolerance, softness, and ink color for cleaner results.",
+    whyUseIt: [
+      "Placing a handwritten signature on a Word or PDF document.",
+      "Removing a white background from a scanned stamp.",
+      "Creating a reusable transparent logo or graphic.",
+    ],
+    tips: [
+      "Use an evenly lit, plain background for the cleanest result.",
+      "Increase tolerance gradually so you do not remove parts of the signature.",
+      "Export as PNG when you need transparency.",
+    ],
+    limitations: "This is a color-keying workflow, not a general AI background remover. Complex photographic backgrounds, shadows, and backgrounds with many similar colors may require manual cleanup.",
   },
   {
     id: "resize-image",
@@ -133,6 +162,18 @@ export const TOOLS: ToolDefinition[] = [
       { q: "What's a good size for a website or social media?", a: "It depends on the platform, but common targets are around 1200px wide for a blog image or 1080px square for social posts — check the specific platform's current recommendation if you need to match it exactly." },
     ],
     synonyms: ["resize image", "change image size", "image dimensions", "image resize karo"],
+    longDescription: "Resize an image to exact pixel dimensions while optionally keeping its original aspect ratio. This is useful when a website, application form, profile system, or document requires a specific width and height.",
+    whyUseIt: [
+      "Preparing an image for a form with exact pixel requirements.",
+      "Making website images smaller before uploading them.",
+      "Creating consistent dimensions across a group of images.",
+    ],
+    tips: [
+      "Lock the aspect ratio when you want to avoid stretching.",
+      "Reduce dimensions before compression when the source is much larger than necessary.",
+      "Do not enlarge a small image expecting new detail to appear.",
+    ],
+    limitations: "Resizing changes the pixel dimensions; it cannot recover detail that was never present. Enlarging an image can make edges look softer.",
   },
   {
     id: "crop-image",
@@ -155,6 +196,18 @@ export const TOOLS: ToolDefinition[] = [
       { q: "Can I undo a crop and start over?", a: "Yes — use 'Process another file' to start fresh with the same image, or re-upload if you want a clean slate." },
     ],
     synonyms: ["crop image", "cut image", "trim photo", "image crop karo"],
+    longDescription: "Crop an image to remove unwanted edges, isolate a subject, or create a specific composition. Cropping changes which pixels remain rather than simply changing the image dimensions.",
+    whyUseIt: [
+      "Removing empty borders or unwanted objects near an edge.",
+      "Preparing a photo for a profile or document.",
+      "Creating a clean composition before resizing or compressing.",
+    ],
+    tips: [
+      "Crop first when the unwanted area is large, then resize if needed.",
+      "Use a consistent aspect ratio for repeated images.",
+      "Keep important faces, text, and signatures away from the crop edge.",
+    ],
+    limitations: "Cropping permanently removes pixels from the exported image. It is different from resizing, which keeps the entire image.",
   },
   {
     id: "passport-photo",
@@ -183,6 +236,18 @@ export const TOOLS: ToolDefinition[] = [
       "id photo maker",
       "visa photo",
     ],
+    longDescription: "Create a passport-style photo from an ordinary portrait using country and size presets. The tool helps with dimensions, cropping, and a plain background, but official authorities may apply additional requirements that vary by country and application type.",
+    whyUseIt: [
+      "Preparing a passport or visa photo at home.",
+      "Creating a correctly sized ID-style image for an application.",
+      "Checking the crop and output dimensions before printing.",
+    ],
+    tips: [
+      "Use even lighting and avoid strong shadows.",
+      "Keep the camera close to eye level and look directly at the lens.",
+      "Check the official authority's latest requirements before submitting the final photo.",
+    ],
+    limitations: "A correctly sized image is not automatically guaranteed to satisfy every official photo rule. Requirements for expression, clothing, glasses, background, head position, and printing can vary.",
   },
   {
     id: "ocr-image",
@@ -205,6 +270,18 @@ export const TOOLS: ToolDefinition[] = [
       { q: "Why did some words come out garbled?", a: "OCR accuracy depends heavily on photo quality — blur, low resolution, glare, or an angled shot are the most common causes. Retaking the photo straight-on in good light usually fixes it." },
     ],
     synonyms: ["ocr", "image to text", "extract text from image", "read text from photo"],
+    longDescription: "Extract machine-readable text from an image or scanned document. OCR is useful when the words you can see are trapped inside pixels and cannot be selected or copied normally.",
+    whyUseIt: [
+      "Copying text from a scanned document.",
+      "Turning a screenshot into editable text.",
+      "Extracting notes, labels, or printed information from a photo.",
+    ],
+    tips: [
+      "Use a sharp, well-lit image with high contrast.",
+      "Straighten rotated pages before OCR when possible.",
+      "Review names, numbers, punctuation, and unusual fonts after extraction.",
+    ],
+    limitations: "OCR is not perfect. Blurry images, handwriting, unusual fonts, low contrast, skewed pages, and complex layouts can reduce accuracy. Always verify important extracted text.",
   },
   {
     id: "convert-image-format",
@@ -239,6 +316,18 @@ export const TOOLS: ToolDefinition[] = [
       "change image format",
       "image format badlo",
     ],
+    longDescription: "Convert images between JPG, PNG, and WebP when a website, application, document, or workflow requires a particular format. The conversion happens locally in the browser.",
+    whyUseIt: [
+      "Converting a PNG photo to JPG for a smaller file.",
+      "Creating WebP images for modern websites.",
+      "Converting WebP back to PNG or JPG for software that does not support WebP.",
+    ],
+    tips: [
+      "Use PNG when you need transparency or crisp graphics.",
+      "Use JPG for most photographic images where broad compatibility matters.",
+      "Use WebP when modern web delivery and smaller files are priorities.",
+    ],
+    limitations: "Converting formats does not magically restore lost quality. JPG is lossy and does not support transparency, so transparent PNG areas need a replacement background when exported to JPG.",
   },
   {
     id: "image-to-pdf",
@@ -269,6 +358,18 @@ export const TOOLS: ToolDefinition[] = [
       "photos ko pdf banao",
       "images ko pdf mein convert karo",
     ],
+    longDescription: "Turn one or more JPG, PNG, or WebP images into a PDF, with page previews and ordering before export. It is useful for scanned paperwork, assignments, receipts, photos, and collections of images that need to become one document.",
+    whyUseIt: [
+      "Combining phone scans into a single PDF.",
+      "Submitting multiple images as one document.",
+      "Creating a PDF from photographs or screenshots.",
+    ],
+    tips: [
+      "Arrange pages before exporting so the final reading order is correct.",
+      "Use appropriately sized source images to avoid unnecessarily large PDFs.",
+      "Check orientation in the preview before downloading.",
+    ],
+    limitations: "The output PDF contains the supplied images; it does not automatically turn photographed text into editable text. Use OCR separately when you need selectable text.",
   },
   {
     id: "merge-pdf",
@@ -298,6 +399,18 @@ export const TOOLS: ToolDefinition[] = [
       "pdf jodo",
       "combine multiple pdf",
     ],
+    longDescription: "Combine multiple PDF files into one document and arrange their order before creating the final file. This is useful for applications, reports, invoices, certificates, assignments, and scanned paperwork.",
+    whyUseIt: [
+      "Combining several documents into one submission.",
+      "Putting a cover letter, resume, and certificates into one PDF.",
+      "Combining separate chapters or scanned sections.",
+    ],
+    tips: [
+      "Put the most important opening page first.",
+      "Check the final page count for accidental duplicates.",
+      "If a source PDF is password protected, unlock it with the required password before merging.",
+    ],
+    limitations: "Encrypted or damaged source PDFs may not be readable by the browser PDF engine. Complex interactive PDF features may not behave exactly like they do in dedicated desktop PDF software.",
   },
   {
     id: "split-pdf",
@@ -326,6 +439,18 @@ export const TOOLS: ToolDefinition[] = [
       "pdf todo",
       "break pdf into pages",
     ],
+    longDescription: "Break a PDF into separate files or page groups. Splitting is useful when one large document contains sections that need to be shared, archived, or uploaded separately.",
+    whyUseIt: [
+      "Separating a large report into chapters.",
+      "Sending only selected pages to another person.",
+      "Breaking a document into smaller uploadable files.",
+    ],
+    tips: [
+      "Decide whether you need every page separately or only a selected range.",
+      "Use clear filenames when several output files are generated.",
+      "Check the first and last page of each output file after splitting.",
+    ],
+    limitations: "Splitting changes the file structure by creating separate documents; it does not rewrite the visual content of each page.",
   },
   {
     id: "compress-pdf",
@@ -357,6 +482,18 @@ export const TOOLS: ToolDefinition[] = [
       "pdf ka size kam karo",
       "make pdf smaller",
     ],
+    longDescription: "Reduce the size of a PDF for email, uploads, sharing, or storage. Image-heavy and scanned PDFs often benefit most because their page images can dominate the file size.",
+    whyUseIt: [
+      "Getting a PDF under an upload or email limit.",
+      "Making a scanned document easier to share.",
+      "Reducing storage usage without manually rebuilding the document.",
+    ],
+    tips: [
+      "Use the least aggressive compression that meets your target.",
+      "Inspect small text after compression when the source contains scans.",
+      "If the PDF is mostly vector text, compression may produce a smaller improvement than it does for image-heavy scans.",
+    ],
+    limitations: "Strong compression can reduce image sharpness. A PDF made from high-resolution scans may need image re-encoding to achieve a large size reduction.",
   },
   {
     id: "pdf-to-images",
@@ -385,6 +522,18 @@ export const TOOLS: ToolDefinition[] = [
       "convert pdf to image",
       "pdf ko image banao",
     ],
+    longDescription: "Render PDF pages as JPG or PNG images for sharing, previews, thumbnails, editing, or workflows that require image files. Multi-page output can be packaged into a ZIP for convenient download.",
+    whyUseIt: [
+      "Creating image previews from a PDF.",
+      "Using individual pages in presentations or websites.",
+      "Extracting visual copies of scanned pages.",
+    ],
+    tips: [
+      "Choose PNG when crisp text and lossless output matter.",
+      "Choose JPG for photographs and smaller files.",
+      "For many pages, keep the ZIP output organized so individual page files are easy to identify.",
+    ],
+    limitations: "Rendering a PDF to images creates a raster representation. Text in the resulting image is no longer directly selectable as PDF text.",
   },
   {
     id: "rotate-pdf",
@@ -407,6 +556,18 @@ export const TOOLS: ToolDefinition[] = [
       { q: "What if a scanned page is upside down, not just sideways?", a: "Use the 180° rotation option — it works the same way as 90° rotation, just flips the page fully around." },
     ],
     synonyms: ["rotate pdf", "turn pdf pages", "pdf ghumao", "fix pdf orientation"],
+    longDescription: "Rotate PDF pages when scans or documents are sideways, upside down, or mixed between portrait and landscape orientation. You can correct page orientation without rebuilding the original document.",
+    whyUseIt: [
+      "Fixing sideways scanned pages.",
+      "Correcting an upside-down page before submission.",
+      "Making mixed-orientation documents easier to read.",
+    ],
+    tips: [
+      "Review the preview before exporting when only some pages need rotation.",
+      "Use 90° increments for ordinary document orientation fixes.",
+      "Check mixed portrait and landscape pages after rotation.",
+    ],
+    limitations: "Rotation changes page orientation metadata/content presentation; it does not straighten a physically skewed scan or improve the scan's underlying image quality.",
   },
   {
     id: "delete-pdf-pages",
@@ -429,6 +590,18 @@ export const TOOLS: ToolDefinition[] = [
       { q: "Can I preview which pages I'm about to delete first?", a: "The tool shows the total page count so you can reference numbers correctly, but there's no visual page-by-page preview yet — double-check your page numbers against the original before downloading." },
     ],
     synonyms: ["delete pdf pages", "remove pdf pages", "pdf se page hatao"],
+    longDescription: "Remove unwanted pages from a PDF before sharing, submitting, or archiving it. This is useful for blank pages, duplicates, outdated sections, or pages containing information you no longer want in the final copy.",
+    whyUseIt: [
+      "Removing a blank final page.",
+      "Removing duplicate scans.",
+      "Creating a clean submission from a larger document.",
+    ],
+    tips: [
+      "Review page thumbnails carefully before deleting.",
+      "Keep an untouched copy of the original if the document matters.",
+      "After export, confirm that the remaining page order is correct.",
+    ],
+    limitations: "Deleted pages are excluded from the new output file. Keep the original if you may need those pages later.",
   },
   {
     id: "extract-pdf-pages",
@@ -451,6 +624,18 @@ export const TOOLS: ToolDefinition[] = [
       { q: "Can I extract the same page more than once?", a: "Entering a page number twice won't duplicate it in the output — each unique page number is only included once, in its original position relative to the other selected pages." },
     ],
     synonyms: ["extract pdf pages", "pull pages from pdf", "pdf se pages nikaalo"],
+    longDescription: "Create a new PDF containing only selected pages from a larger document. Extraction is useful when you need a few pages without changing or redistributing the entire source file.",
+    whyUseIt: [
+      "Sending only pages 4–8 from a report.",
+      "Saving a particular chapter as its own PDF.",
+      "Submitting selected pages to an online form.",
+    ],
+    tips: [
+      "Use page numbers carefully, especially with documents that contain covers or inserts.",
+      "Preview the extracted document before sharing it.",
+      "Use Split PDF instead when you want the whole document divided into multiple files.",
+    ],
+    limitations: "Extraction copies selected pages into a new PDF; it does not automatically rewrite or edit the content inside those pages.",
   },
   {
     id: "pdf-to-word",
@@ -473,6 +658,18 @@ export const TOOLS: ToolDefinition[] = [
       { q: "What if the PDF is a scan, not typed text?", a: "There's no text layer to extract from a scanned image, so run it through the OCR tool first to convert the scan into real text, then work with that text directly." },
     ],
     synonyms: ["pdf to word", "pdf to docx", "convert pdf to word"],
+    longDescription: "Convert a PDF into an editable Word document while attempting to preserve text positioning and common paragraph alignment. The result is designed for editing rather than perfect reproduction of every complex PDF layout.",
+    whyUseIt: [
+      "Editing text trapped inside a text-based PDF.",
+      "Reusing content from reports or documents.",
+      "Turning a simple PDF into a Word document for further formatting.",
+    ],
+    tips: [
+      "Text-based PDFs generally convert better than scanned image-only PDFs.",
+      "Expect extra cleanup for complex tables, columns, unusual fonts, and heavily designed pages.",
+      "Compare the first few pages with the source before relying on a complex conversion.",
+    ],
+    limitations: "PDF and Word use different layout models. Complex columns, tables, images, fonts, and scanned pages may require manual cleanup. A conversion should not be treated as a pixel-perfect reproduction.",
   },
   {
     id: "word-to-pdf",
@@ -495,6 +692,18 @@ export const TOOLS: ToolDefinition[] = [
       { q: "Does this work with very long documents?", a: "Yes, though documents with many pages will take longer to render and paginate since it's all processed on your device." },
     ],
     synonyms: ["word to pdf", "docx to pdf", "convert word to pdf"],
+    longDescription: "Convert a Word document into a shareable PDF while preserving common paragraph alignment and document structure. PDF is useful when you want the layout to remain consistent across devices.",
+    whyUseIt: [
+      "Sharing a final document without asking recipients to edit it.",
+      "Submitting assignments, resumes, forms, or reports as PDF.",
+      "Creating a fixed-layout copy of a Word document.",
+    ],
+    tips: [
+      "Review page breaks and tables before sending the final PDF.",
+      "Use standard fonts when portability matters.",
+      "Keep the original DOCX so you can make future edits.",
+    ],
+    limitations: "Browser-based document rendering can differ from Microsoft Word for advanced features, unusual fonts, complex tables, or highly designed documents.",
   },
   {
     id: "excel-to-pdf",
@@ -517,6 +726,18 @@ export const TOOLS: ToolDefinition[] = [
       { q: "Will custom cell colors and fonts be preserved?", a: "No — only the data and its type-based alignment carry over. Custom cell colors, borders, and fonts from the original spreadsheet aren't reproduced." },
     ],
     synonyms: ["excel to pdf", "xlsx to pdf", "convert excel to pdf"],
+    longDescription: "Turn spreadsheet data into a clean PDF table for printing, sharing, or submission. The browser conversion focuses on readable tabular output rather than reproducing every Excel-specific visual feature.",
+    whyUseIt: [
+      "Sharing a spreadsheet as a fixed document.",
+      "Printing simple tables and reports.",
+      "Submitting tabular data where a PDF is required.",
+    ],
+    tips: [
+      "Keep column names clear and concise.",
+      "Review wide tables because PDF page width is limited.",
+      "Use consistent number and date formatting in the source spreadsheet.",
+    ],
+    limitations: "Advanced Excel styling, formulas, charts, merged cells, custom print areas, and workbook-specific layout features may not reproduce exactly.",
   },
   {
     id: "ppt-to-pdf",
@@ -539,6 +760,18 @@ export const TOOLS: ToolDefinition[] = [
       { q: "Why does the text position sometimes look slightly off?", a: "Text boxes are placed using each shape's stored position on the slide, so the layout should closely track the original — very complex slides with unusual custom layouts may not translate perfectly." },
     ],
     synonyms: ["ppt to pdf", "powerpoint to pdf", "pptx to pdf"],
+    longDescription: "Convert PowerPoint slides into a PDF with each slide represented as a page. The browser renderer attempts to preserve slide dimensions and text-box positioning, making it useful for simple presentations and slide sharing.",
+    whyUseIt: [
+      "Sharing slides without requiring PowerPoint.",
+      "Submitting a presentation as PDF.",
+      "Creating a fixed copy of a simple slide deck.",
+    ],
+    tips: [
+      "Use standard fonts and simple layouts for better fidelity.",
+      "Review slides with overlapping objects or unusual formatting carefully.",
+      "Keep the original PPTX as the editable master copy.",
+    ],
+    limitations: "PowerPoint is a complex presentation format. Advanced animations, transitions, charts, shapes, embedded media, custom fonts, and intricate styling may not reproduce exactly in the browser-generated PDF.",
   },
 ];
 
