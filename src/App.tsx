@@ -49,7 +49,7 @@ export default function App() {
         <main className="flex-1">
           <Suspense 
             fallback={
-              <div className="max-w-2xl mx-auto px-4 py-12 text-sm text-text-dim">
+              <div data-nopagead="1" className="max-w-2xl mx-auto px-4 py-12 text-sm text-text-dim">
                 Loading tool…
               </div>
             }

@@ -6,6 +6,8 @@ import { getPostBySlug } from "../content/blogPosts";
 import { getToolById } from "../lib/intent/dictionary";
 import { useCanonicalUrl } from "../lib/useCanonicalUrl";
 import { getBlogEnhancement } from "../content/blogEnhancements";
+import AdUnit from "../components/AdUnit";
+import { MANUAL_AD_SLOT } from "../config/ads";
 
 
 export default function BlogPostPage() {
@@ -46,6 +48,9 @@ export default function BlogPostPage() {
         {post.content}
         {getBlogEnhancement(post.slug)}
       </div>
+
+      {/* After the full article body — real, substantial content above it. */}
+      <AdUnit slot={MANUAL_AD_SLOT} />
 
       {relatedTool && (
         <div className="mt-12 pt-8 border-t border-line">

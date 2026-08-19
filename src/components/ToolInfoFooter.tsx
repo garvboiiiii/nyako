@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { BookOpen, CheckCircle2, Lightbulb, ShieldCheck } from "lucide-react";
 import { getToolById, getRelatedByCategory, CATEGORIES } from "../lib/intent/dictionary";
 import { BLOG_POSTS } from "../content/blogPosts";
+import AdUnit from "./AdUnit";
+import { MANUAL_AD_SLOT } from "../config/ads";
 
 export default function ToolInfoFooter({ toolId }: { toolId: string }) {
   const tool = getToolById(toolId);
@@ -85,6 +87,10 @@ export default function ToolInfoFooter({ toolId }: { toolId: string }) {
           </div>
         </section>
       )}
+
+      {/* Placed after the FAQ so it always sits below a full block of
+          real, tool-specific content — never above it or in an empty state. */}
+      <AdUnit slot={MANUAL_AD_SLOT} />
 
       {relatedPost && (
         <section>
