@@ -5,7 +5,8 @@
 // page content without depending on JavaScript execution.
 
 import { readFile, writeFile, mkdir, rm } from "node:fs/promises";
-import { existsSync, readdir } from "node:fs";
+import { existsSync } from "node:fs";
+import { readdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
