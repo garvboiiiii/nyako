@@ -5,7 +5,7 @@
 // page content without depending on JavaScript execution.
 
 import { readFile, writeFile, mkdir, rm } from "node:fs/promises";
-import { existsSync } from "node:fs";
+import { existsSync, readdir } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -13,14 +13,16 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(root, "..");
 const clientDir = path.join(projectRoot, "dist");
 const serverDir = path.join(projectRoot, "dist-server");
-const serverEntry = path.join(serverDir, "entry-server.js");
+
 
 async function main() {
-  if (!existsSync(serverEntry)) {
-    console.error(`SSR bundle not found at ${serverEntry}.`);
+  const serverEntry = await findServerEntry(serverDir);
+  if (!serverEntry) {
+    console.error(`SSR bundle not found under ${serverDir}.`);
     process.exit(1);
   }
 
+  console.log(`Using SSR bundle: ${serverEntry}`);
   const { render, getAllRoutes } = await import(pathToFileUrl(serverEntry));
   const template = await readFile(path.join(clientDir, "index.html"), "utf-8");
   const routes = getAllRoutes();
@@ -68,6 +70,21 @@ async function main() {
   await rm(serverDir, { recursive: true, force: true });
 
   if (failed > 0 || ok !== routes.length) process.exit(1);
+}
+
+async function findServerEntry(dir) {
+  if (!existsSync(dir)) return null;
+
+  const entries = await readdir(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const full = path.join(dir, entry.name);
+    if (entry.isFile() && entry.name === "entry-server.js") return full;
+    if (entry.isDirectory()) {
+      const nested = await findServerEntry(full);
+      if (nested) return nested;
+    }
+  }
+  return null;
 }
 
 function injectIntoTemplate(template, appHtml, route) {
