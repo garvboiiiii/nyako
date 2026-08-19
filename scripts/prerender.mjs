@@ -66,6 +66,9 @@ async function main() {
   // Cloudflare Pages can use this as the SPA fallback for unknown routes.
   await writeFile(path.join(clientDir, "404.html"), template, "utf-8");
 
+  await writeFile(path.join(clientDir, "sitemap.xml"), buildSitemap(routes), "utf-8");
+  console.log(`  ✓ sitemap.xml (${routes.length} urls)`);
+
   console.log(`Done. ${ok} routes prerendered, ${failed} failed.`);
 
   await rm(serverDir, { recursive: true, force: true });
@@ -142,6 +145,25 @@ function injectIntoTemplate(template, appHtml, route) {
 function replaceOrInsert(html, pattern, replacement, before = "</head>") {
   if (pattern.test(html)) return html.replace(pattern, replacement);
   return html.replace(before, `    ${replacement}\n  ${before}`);
+}
+
+function buildSitemap(routes) {
+  const priorityFor = (p) => {
+    if (p === "/") return "1.0";
+    if (p.startsWith("/tools/")) return "0.9";
+    if (p === "/blog") return "0.8";
+    if (p.startsWith("/blog/")) return "0.7";
+    return "0.5";
+  };
+
+  const urls = routes
+    .map(
+      (route) =>
+        `  <url>\n    <loc>https://nyako.co.in${route.path}</loc>\n    <priority>${priorityFor(route.path)}</priority>\n  </url>`
+    )
+    .join("\n");
+
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
 }
 
 function escapeHtml(str) {
