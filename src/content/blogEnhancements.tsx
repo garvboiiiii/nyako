@@ -183,6 +183,101 @@ const GUIDE_ENHANCEMENTS: Record<string, ReactNode> = {
       <p>Open the extracted PDF before sending it. Confirm the first page, last page, total page count, and any important tables or signatures that span page boundaries.</p>
     </>
   ),
+  "compress-image-without-losing-quality": (
+    <>
+      <h2>How much can an image actually shrink before it looks different?</h2>
+      <p>There's no fixed percentage that applies to every photo — it depends on how much fine detail and noise the original already has. A clean, well-lit photo with smooth areas of color can often lose 70-80% of its file size with no visible difference at normal viewing size. A noisy, low-light, or heavily detailed photo has less room before compression artifacts start showing, because there's less redundant information for the algorithm to discard.</p>
+      <h2>Resolution vs. quality: two different dials</h2>
+      <p>It helps to think of image size as controlled by two separate settings that get compressed together. Quality (or the compression level) affects how much color and detail precision is kept per pixel. Resolution (the actual pixel dimensions) affects how many pixels exist at all. Lowering quality slightly is usually far less noticeable than lowering resolution, because quality loss shows up as subtle softness while resolution loss shows up as visible pixelation or blur, especially in text and fine lines.</p>
+      <h2>Why the same photo can compress to wildly different sizes</h2>
+      <p>Two photos that look similar in size on screen can compress to very different final file sizes. A photo of a plain wall compresses far more than a photo of a forest full of leaves, because the compression algorithm exploits repeated or predictable pixel patterns — flat, low-detail areas compress efficiently, while busy, high-frequency detail (leaves, fabric texture, crowds) resists compression and needs more data to represent accurately.</p>
+      <h2>A practical workflow that avoids guesswork</h2>
+      <ol>
+        <li>Check the actual size limit you need to hit (not a guess — the real number from the form or upload portal).</li>
+        <li>If the format is flexible, convert to JPG or WebP first for photos.</li>
+        <li>Set that number as your target instead of picking a quality percentage blindly.</li>
+        <li>Zoom into faces, signatures, or small text in the result before using it.</li>
+      </ol>
+    </>
+  ),
+  "convert-word-to-pdf": (
+    <>
+      <h2>What "locking down" a layout actually means</h2>
+      <p>A Word document is fundamentally a set of instructions — which font, which size, which spacing — that gets interpreted fresh every time the file is opened. A PDF, by contrast, describes the exact visual position of every character and image on the page. That's the core difference: Word describes intent, PDF describes the final rendered result, which is why a PDF looks identical everywhere while a .docx can shift depending on what's rendering it.</p>
+      <h2>The font substitution problem in more detail</h2>
+      <p>When a font used in a Word document isn't installed on the device opening it, the application picks a fallback font with similar general proportions. That substitution changes character widths slightly, which cascades into different line breaks, different page breaks, and sometimes a document that's a page longer or shorter than intended. This is invisible to the person who created the file — their system has the font — and only shows up for the recipient.</p>
+      <h2>Why PDF became the standard for anything final</h2>
+      <p>Contracts, resumes, invoices, and official forms are almost always distributed as PDF specifically because the sender needs certainty about how it will look on the other end, without needing to know or control what software or fonts the recipient has installed. A Word document is the right format while a document is still being actively edited by multiple people; a PDF is the right format once it's finished and being distributed or archived.</p>
+      <h2>Checking the conversion actually worked</h2>
+      <ul>
+        <li>Scroll through every page, not just the first one — formatting issues often show up mid-document.</li>
+        <li>Pay closest attention to tables, which are the most likely element to shift.</li>
+        <li>Check that any embedded images near a page break didn't get separated from their captions.</li>
+        <li>Confirm page numbers and headers/footers carried over correctly if the document used them.</li>
+      </ul>
+    </>
+  ),
+  "convert-excel-to-pdf": (
+    <>
+      <h2>Why spreadsheets don't have a natural "page" concept</h2>
+      <p>A document like a Word file is written with pages in mind from the start. A spreadsheet is fundamentally a grid that can extend in any direction — rows and columns aren't inherently bounded by a page size. When you export or print a spreadsheet, something has to impose page boundaries onto a structure that wasn't designed with them, and that's the root of almost every "my table got cut off" complaint.</p>
+      <h2>Print area vs. actual data</h2>
+      <p>Spreadsheet applications often have a defined "print area" that may not match all the cells containing your actual data — especially if the sheet has grown since the print area was last set. Before converting, it's worth checking whether the print/export area actually covers every column and row you expect to see in the output, since a stale print area is a common silent cause of missing columns.</p>
+      <h2>Scaling settings that actually help</h2>
+      <p>Beyond orientation, most spreadsheet applications have a "fit to page width" or "scale to fit" option that shrinks the entire table proportionally to fit a set number of pages wide. This is usually a better fix for moderately wide sheets than manually narrowing columns, since it preserves the relative sizing of every column rather than distorting some more than others.</p>
+      <h2>When to reconsider PDF entirely</h2>
+      <p>For a spreadsheet with dozens of columns, or one meant to be filtered and sorted by the reader, PDF may not be the right format at all — a PDF is inherently static and read-only. In those cases, sharing the actual spreadsheet file (or a link to it) can serve the reader better than a flattened, potentially hard-to-read PDF export.</p>
+    </>
+  ),
+  "convert-ppt-to-pdf": (
+    <>
+      <h2>Editability as a liability, not just a feature</h2>
+      <p>A .pptx file is, by design, meant to be opened and modified — that's what makes PowerPoint useful for building a deck in the first place. But once a presentation is finalized and being sent to someone who should only view it, that same editability means anyone with the file can quietly change numbers, claims, or branding before forwarding it further. PDF removes that risk by producing a fixed, non-editable snapshot.</p>
+      <h2>Font and layout consistency across devices</h2>
+      <p>Presentations are especially prone to font substitution issues because slide decks often use distinctive display fonts for titles and headers — exactly the kind of font least likely to be installed on someone else's device. A missing font in PowerPoint doesn't just shift the text slightly; it can overflow a text box or overlap another element, since decks are laid out with much less flexible spacing than a flowing document. A PDF avoids that entirely, since the final visual layout is fixed once exported.</p>
+      <h2>What to check in the exported PDF</h2>
+      <ul>
+        <li>Slide numbers and any footer branding carried over correctly.</li>
+        <li>Text boxes positioned near a slide edge weren't clipped.</li>
+        <li>Charts and embedded images rendered at full resolution, not a blurry placeholder.</li>
+        <li>If speaker notes were needed, they were exported (most standard exports skip them by default).</li>
+      </ul>
+    </>
+  ),
+  "free-pdf-tools-no-signup": (
+    <>
+      <h2>The business model behind most "free" tools</h2>
+      <p>A tool that processes files on a server has real infrastructure costs — storage, bandwidth, compute — and those costs scale with usage. That's why so many "free" online tools eventually ask for an account, cap daily usage, or run ads aggressively: the free tier is often a funnel toward a paid plan, not a genuinely sustainable free offering. A tool that runs entirely in the browser has a fundamentally different cost structure, since your own device does the processing — there's no per-file server cost to recoup.</p>
+      <h2>What "your file never leaves your device" actually means technically</h2>
+      <p>Modern browsers can run surprisingly capable code locally — compressing images, manipulating PDFs, converting formats — using the same JavaScript engine that runs the rest of the page, without ever sending the file's contents to a server. You can usually verify this yourself: open your browser's developer tools, go to the Network tab, and process a file. If no request containing the file data goes out, it genuinely never left your device.</p>
+      <h2>Red flags worth watching for</h2>
+      <ul>
+        <li>A processing spinner that only appears after a network request completes — a sign the file was uploaded somewhere.</li>
+        <li>A vague or missing privacy policy about what happens to uploaded files.</li>
+        <li>A "free" tag that requires payment info to even try the tool once.</li>
+        <li>Output files stamped with a watermark that wasn't disclosed upfront.</li>
+      </ul>
+      <h2>When a server-based tool is still the right choice</h2>
+      <p>None of this means server-based tools are automatically bad — some tasks (heavy AI processing, huge batch jobs, certain OCR models) are genuinely more capable on a server than in a browser. The point is knowing the trade-off you're making: convenience and capability on one side, versus your file briefly existing on someone else's infrastructure on the other, and picking consciously rather than by default.</p>
+    </>
+  ),
+  "passport-photo-file-size-requirements": (
+    <>
+      <h2>Why the KB limit exists on top of the pixel requirement</h2>
+      <p>Government and visa portals process an enormous volume of photo uploads daily, and every uploaded file adds to storage and processing load across their entire system. Capping file size keeps that load predictable regardless of how large individual applicants' original photos are — it has nothing to do with judging your photo's quality, and everything to do with system capacity at scale.</p>
+      <h2>Typical ranges, and why "typical" isn't "guaranteed"</h2>
+      <p>Many Indian passport, visa, and competitive exam portals cap photo uploads somewhere between 20KB and 300KB, with pixel dimensions commonly in the 200×230px to 600×600px range depending on the specific form. These numbers shift between form cycles and differ meaningfully between agencies — a exam board's requirement is not necessarily the passport office's requirement, even though both are "official Indian government photo specs" in casual conversation.</p>
+      <h2>Why a "small enough" photo can still get rejected</h2>
+      <p>File size and pixel dimensions are validated independently by most portals — passing one check doesn't guarantee the other passes too. A photo squeezed down to a tiny file size but still at the wrong pixel dimensions (or vice versa) will still get rejected. Both numbers need to be correct on the exact file you upload.</p>
+      <h2>A dependable process for any Indian government form</h2>
+      <ol>
+        <li>Find the current, form-specific requirement directly on the portal — don't rely on memory from a previous application.</li>
+        <li>Crop and size the photo to the exact pixel dimensions specified.</li>
+        <li>Compress to the exact KB limit specified, with a small safety margin.</li>
+        <li>Re-verify both numbers on the final file right before uploading, since some tools apply changes in an order that can shift the file size again.</li>
+      </ol>
+    </>
+  ),
 };
 
 export function getBlogEnhancement(slug: string): ReactNode | null {

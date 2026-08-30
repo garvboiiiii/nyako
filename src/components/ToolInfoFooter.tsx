@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { BookOpen, CheckCircle2, Lightbulb, ShieldCheck } from "lucide-react";
+import { BookOpen, CheckCircle2, Lightbulb, ShieldCheck, AlertTriangle } from "lucide-react";
 import { getToolById, getRelatedByCategory, CATEGORIES } from "../lib/intent/dictionary";
 import { BLOG_POSTS } from "../content/blogPosts";
+import { getCommonMistakes } from "../content/toolGuides";
 import AdUnit from "./AdUnit";
 import { MANUAL_AD_SLOT } from "../config/ads";
 import JsonLd from "./JsonLd";
@@ -13,6 +14,7 @@ export default function ToolInfoFooter({ toolId }: { toolId: string }) {
 
   const related = getRelatedByCategory(toolId, 4);
   const relatedPost = BLOG_POSTS.find((p) => p.relatedToolSlug === toolId);
+  const mistakes = getCommonMistakes(toolId);
 
   return (
     <div className="mt-12 space-y-10">
@@ -89,6 +91,23 @@ export default function ToolInfoFooter({ toolId }: { toolId: string }) {
               <div key={f.q} className="p-4">
                 <p className="font-display font-semibold text-sm mb-1.5">{f.q}</p>
                 <p className="text-sm text-text-dim leading-relaxed">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {mistakes.length > 0 && (
+        <section>
+          <div className="flex items-center gap-2 mb-4">
+            <AlertTriangle size={17} className="text-primary" />
+            <h2 className="font-display text-sm uppercase tracking-wide text-text-dim">Common mistakes to avoid</h2>
+          </div>
+          <div className="space-y-4">
+            {mistakes.map((m) => (
+              <div key={m.title} className="rounded-xl border border-line bg-surface p-4">
+                <p className="font-display font-semibold text-sm mb-1.5">{m.title}</p>
+                <p className="text-sm text-text-dim leading-relaxed">{m.body}</p>
               </div>
             ))}
           </div>

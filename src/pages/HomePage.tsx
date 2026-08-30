@@ -19,7 +19,7 @@ import HomeDropZone from "../components/HomeDropZone";
 import { TOOLS, CATEGORIES, type CategoryId } from "../lib/intent/dictionary";
 import { useCanonicalUrl } from "../lib/useCanonicalUrl";
 import JsonLd from "../components/JsonLd";
-import { webApplicationSchema } from "../lib/schema";
+import { webApplicationSchema, faqPageSchema } from "../lib/schema";
 
 const SUGGESTION_CHIPS = [
   { label: "Compress Image", slug: "compress-image" },
@@ -64,6 +64,26 @@ const FAQS = [
     q: "Is it really free?",
     a: "Yes. The core tools stay free, supported by unobtrusive ads — never by watermarking or limiting your files.",
   },
+  {
+    q: "How can browser-based tools be as capable as server-based ones?",
+    a: "Modern browsers can run genuinely fast image and PDF processing locally, using the same JavaScript engine that renders the rest of the page. For everyday tasks — compressing a photo, merging a few PDFs, converting a document — that's more than enough power, without needing to send your file anywhere first.",
+  },
+  {
+    q: "Will my file quality get worse using these tools?",
+    a: "Not more than any equivalent desktop tool would. Compression tools reduce file size by design, but you control the target — and lossless operations like merging, splitting, or rotating don't touch image or text quality at all.",
+  },
+  {
+    q: "Is there a file size limit?",
+    a: "Since processing happens on your own device, the practical limit is your device's memory rather than an artificial cap we impose. Very large files (several hundred MB) may take longer to process locally than a smaller one, but there's no arbitrary upload ceiling.",
+  },
+  {
+    q: "Does Nyako work on mobile?",
+    a: "Yes — every tool works in a mobile browser the same way it does on desktop, since the processing happens locally either way. No app install is required.",
+  },
+  {
+    q: "What happens if I close the tab midway through a task?",
+    a: "Since nothing is uploaded to a server, closing the tab simply stops the local process — there's no partial upload sitting somewhere. Just reopen the tool and start again.",
+  },
 ];
 
 export default function HomePage() {
@@ -93,7 +113,7 @@ export default function HomePage() {
 
   return (
     <>
-      <JsonLd data={webApplicationSchema()} />
+      <JsonLd data={[webApplicationSchema(), faqPageSchema(FAQS)]} />
       <HomeDropZone />
 
       {/* HERO */}
