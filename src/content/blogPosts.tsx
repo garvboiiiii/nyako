@@ -803,6 +803,322 @@ export const BLOG_POSTS: BlogPost[] = [
       </>
     ),
   },
+  {
+    slug: "compress-image-without-losing-quality",
+    title: "How to Compress an Image Without Losing Quality",
+    description:
+      "You don't have to choose between a tiny file and a blurry photo. Here's how smart compression keeps quality intact while hitting your target size.",
+    publishDate: "2026-08-15",
+    readTimeMinutes: 5,
+    relatedToolSlug: "compress-image",
+    content: (
+      <>
+        <p>
+          "Compress this image" almost always really means "make this file small enough without
+          it looking obviously worse." Those are two different goals, and most tools only let you
+          pick a vague quality slider and hope for the best.
+        </p>
+
+        <h2>Why "quality %" sliders are the wrong starting point</h2>
+        <p>
+          A quality percentage doesn't tell you anything about the actual output — 70% quality on
+          one photo might produce a 200KB file, and on another photo (more detail, more noise) it
+          might produce 900KB. If a form or upload portal has a strict KB limit, guessing a
+          percentage means uploading, checking the size, and trying again.
+        </p>
+        <p>
+          It's usually faster to work backwards from the actual requirement: tell the tool the
+          target file size you need, and let it figure out the quality and resolution that gets
+          you there. That's how our <a href="/tools/compress-image">Compress Image tool</a> works —
+          set a target in KB, and it tries a lighter compression pass first, only going further if
+          the lighter pass isn't enough.
+        </p>
+
+        <h2>What actually causes visible quality loss</h2>
+        <p>
+          Two separate things happen during compression: the algorithm reduces color/detail
+          precision (this is the "quality" part), and past a certain point it may also reduce the
+          image's pixel dimensions. Dropping quality slightly is usually invisible. Dropping
+          dimensions is more noticeable, especially for images with fine text or sharp edges. A
+          good compressor should only touch dimensions as a last resort, after quality reduction
+          alone can't hit the target.
+        </p>
+
+        <h2>Format choice matters as much as compression</h2>
+        <p>
+          A photograph saved as PNG is often several times larger than the same photo saved as
+          JPG or WebP, for no visible quality benefit — PNG is a lossless format built for flat
+          colors and sharp edges (screenshots, logos), not photographic detail. If you're
+          uploading a photo and the format is flexible, converting to JPG or WebP first can get
+          you most of the size reduction before compression even starts. See our{" "}
+          <a href="/blog/png-vs-jpg-vs-webp">format comparison guide</a> for when to use each one.
+        </p>
+
+        <h2>A quick pre-upload checklist</h2>
+        <ul>
+          <li>Know the actual limit (KB or MB) before you start — don't guess.</li>
+          <li>Use JPG or WebP for photos, PNG only for screenshots/logos/transparency.</li>
+          <li>Set a target slightly under the limit, not right at it.</li>
+          <li>Zoom in on faces and text after compressing to confirm it still looks right.</li>
+        </ul>
+
+        <p>
+          And if the exact target genuinely can't be reached without ruining the image, a good
+          tool should tell you that honestly instead of silently destroying quality to force the
+          number.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "convert-word-to-pdf",
+    title: "How to Convert Word to PDF Without Breaking the Formatting",
+    description:
+      "A .docx that opens perfectly on your laptop can look completely different on someone else's. Here's why, and how converting to PDF fixes it.",
+    publishDate: "2026-08-18",
+    readTimeMinutes: 4,
+    relatedToolSlug: "word-to-pdf",
+    content: (
+      <>
+        <p>
+          Send a Word document to five different people and there's a decent chance it renders
+          five slightly different ways — a missing font substituted, a table that reflows, margins
+          that shift. PDF exists specifically to solve that problem: it locks down exactly how a
+          document looks, everywhere it's opened.
+        </p>
+
+        <h2>Why Word documents don't look the same everywhere</h2>
+        <p>
+          A .docx file doesn't embed a full copy of the fonts and layout — it stores instructions,
+          and the app rendering it (Word, Google Docs, WPS, an older Word version) fills in the
+          rest using whatever fonts are installed locally. If the recipient doesn't have the exact
+          font you used, their system substitutes something similar, and spacing quietly shifts
+          from there.
+        </p>
+
+        <h2>What converting to PDF actually fixes</h2>
+        <p>
+          A PDF freezes the exact visual layout — fonts, spacing, page breaks, images — into the
+          file itself, so it looks identical whether it's opened on a phone, a different OS, or
+          five years from now on software that may not exist yet. That's why resumes, contracts,
+          invoices, and anything meant to be read (not edited) by someone else are almost always
+          sent as PDF, not .docx.
+        </p>
+
+        <h2>How to convert without losing anything</h2>
+        <ol>
+          <li>Upload your .docx file to our <a href="/tools/word-to-pdf">Word to PDF tool</a>.</li>
+          <li>It converts entirely in your browser — the document is never uploaded to a server.</li>
+          <li>Download the PDF and check page breaks, especially around tables and images near a page edge.</li>
+        </ol>
+
+        <h2>One thing worth checking afterward</h2>
+        <p>
+          Tables and embedded images are the two elements most likely to shift slightly during any
+          document conversion, simply because they depend on exact column widths and surrounding
+          text flow. It only takes a few seconds to scroll through the PDF and confirm nothing got
+          cut off at a page break before you send it.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "convert-excel-to-pdf",
+    title: "How to Convert Excel to PDF Without Cutting Off Columns",
+    description:
+      "Excel's default print settings chop wide sheets in half. Here's how to convert a spreadsheet to PDF that actually fits the page.",
+    publishDate: "2026-08-20",
+    readTimeMinutes: 4,
+    relatedToolSlug: "excel-to-pdf",
+    content: (
+      <>
+        <p>
+          Everyone's opened a PDF exported from Excel where column F just... stops, and columns
+          G through K show up on a second page nobody expected. It's one of the most common
+          spreadsheet-to-PDF complaints, and it's almost always a page-width problem, not a bug.
+        </p>
+
+        <h2>Why wide sheets get cut off</h2>
+        <p>
+          A spreadsheet doesn't have "pages" the way a document does — rows and columns can extend
+          indefinitely. When you export to PDF, something has to decide where a printed page ends,
+          and by default that's usually based on standard page width, not the width of your data.
+          If your sheet has 15 columns, it very likely doesn't fit on one portrait page at a
+          readable size.
+        </p>
+
+        <h2>What to do before converting</h2>
+        <ul>
+          <li>Decide if the sheet is genuinely meant to be read on paper — if it's just for reference, keeping it as a spreadsheet might be better than PDF at all.</li>
+          <li>Hide or delete any columns and rows you don't actually need in the final document.</li>
+          <li>If it's wide, landscape orientation alone often solves the cutoff — no other changes needed.</li>
+        </ul>
+
+        <h2>Converting the file</h2>
+        <p>
+          Our <a href="/tools/excel-to-pdf">Excel to PDF tool</a> takes an .xlsx file and converts
+          it directly in your browser, with nothing uploaded anywhere. Upload the spreadsheet,
+          download the PDF, and check the first page for anything that looks unexpectedly
+          truncated before sharing it further.
+        </p>
+
+        <h2>If a table still doesn't fit</h2>
+        <p>
+          For genuinely wide data (dozens of columns), no page orientation will make it fit
+          cleanly at a readable font size — and forcing it usually just makes the text
+          microscopic. In that case, splitting the sheet into a few logical PDF exports, or
+          keeping only the columns relevant to the reader, produces a far more usable document
+          than one giant unreadable table.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "convert-ppt-to-pdf",
+    title: "How to Convert PowerPoint to PDF for Sharing and Printing",
+    description:
+      "Sending the raw .pptx file means anyone can edit your slides — and animations can look broken outside PowerPoint. Here's when PDF is the better format.",
+    publishDate: "2026-08-22",
+    readTimeMinutes: 4,
+    relatedToolSlug: "ppt-to-pdf",
+    content: (
+      <>
+        <p>
+          A .pptx file is built to be edited — that's the whole point of PowerPoint. But once a
+          deck is final and just needs to be shared, printed, or attached to an email, that
+          editability stops being a feature and starts being a risk: slides can be altered,
+          animations depend on having PowerPoint installed, and fonts can substitute on a device
+          that doesn't have the ones you used.
+        </p>
+
+        <h2>When PDF beats sending the raw .pptx</h2>
+        <ul>
+          <li><strong>Final, read-only sharing</strong> — a client, recruiter, or reviewer doesn't need to edit your slides, just view them exactly as designed.</li>
+          <li><strong>Printing handouts</strong> — a PDF prints identically everywhere; a .pptx depends on the printing app's rendering.</li>
+          <li><strong>Email attachments</strong> — recipients without PowerPoint (or with an incompatible version) can still open a PDF with almost anything.</li>
+          <li><strong>Portfolio or application submissions</strong> — most upload portals expect PDF, not .pptx.</li>
+        </ul>
+
+        <h2>What happens to animations and transitions</h2>
+        <p>
+          PDF is a static format, so slide transitions and build animations don't carry over —
+          each slide becomes one flat page showing its final state. If you specifically need
+          animations preserved for playback, keep the .pptx for presenting live and export the PDF
+          only as the "read this later" version.
+        </p>
+
+        <h2>How to convert it</h2>
+        <ol>
+          <li>Upload your .pptx to our <a href="/tools/ppt-to-pdf">PPT to PDF tool</a>.</li>
+          <li>Conversion happens locally in your browser — the deck isn't sent to a server.</li>
+          <li>Download the PDF and skim through it to confirm text boxes and images near slide edges rendered as expected.</li>
+        </ol>
+      </>
+    ),
+  },
+  {
+    slug: "free-pdf-tools-no-signup",
+    title: "Free Online PDF Tools That Don't Need a Sign-Up (What to Actually Check)",
+    description:
+      "\"Free\" tools that demand an account, cap you after 2 files, or quietly upload your documents aren't really free. Here's what to look for instead.",
+    publishDate: "2026-08-25",
+    readTimeMinutes: 5,
+    relatedToolSlug: "merge-pdf",
+    content: (
+      <>
+        <p>
+          Search "free PDF tools" and you'll find dozens of sites that are free right up until
+          you hit a "Sign up to continue" wall on your second file, or a daily limit that resets
+          your patience along with your usage count. A genuinely free tool shouldn't need your
+          email address to compress one image.
+        </p>
+
+        <h2>Where your file actually goes matters</h2>
+        <p>
+          Most "free" PDF and image tools work by uploading your file to a server, processing it
+          there, and sending the result back. That's not automatically dangerous, but it does mean
+          a copy of your document — which might be a signed contract, a form with personal
+          details, or a passport photo — briefly exists on someone else's infrastructure, subject
+          to whatever their retention and privacy policy actually says (if you bother to read it).
+        </p>
+        <p>
+          A tool that runs entirely in your browser skips that step completely: the file is read,
+          processed, and downloaded without ever leaving your device. Nyako's tools — {" "}
+          <a href="/tools/compress-pdf">Compress PDF</a>, <a href="/tools/merge-pdf">Merge PDF</a>,{" "}
+          <a href="/tools/pdf-to-word">PDF to Word</a>, and the rest — all work this way.
+        </p>
+
+        <h2>Four things to check before trusting a "free" tool</h2>
+        <ul>
+          <li><strong>Does it ask for an account?</strong> A one-off task like merging two PDFs shouldn't require creating a login.</li>
+          <li><strong>Is there a hidden file limit?</strong> "Free" that quietly becomes paid after 2–3 uses isn't really free.</li>
+          <li><strong>Does the output have a watermark?</strong> Some "free" converters stamp their own branding across your document.</li>
+          <li><strong>Where does the file go?</strong> If you can't tell whether it's uploaded to a server, assume it is.</li>
+        </ul>
+
+        <h2>The trade-off worth knowing</h2>
+        <p>
+          Browser-based tools do have one real limitation: very large files (hundreds of MB) can
+          be slower to process locally than on a powerful server, since your own device is doing
+          the work. For the vast majority of everyday tasks — compressing a photo, merging a few
+          PDFs, converting a document — that trade-off is a small price for not uploading personal
+          files to a stranger's server in the first place.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "passport-photo-file-size-requirements",
+    title: "Passport & ID Photo File Size Requirements (And How to Hit Them)",
+    description:
+      "Passport Seva, visa portals, and exam forms all specify a maximum photo file size — and they're all slightly different. Here's how to get it right the first time.",
+    publishDate: "2026-08-27",
+    readTimeMinutes: 4,
+    relatedToolSlug: "passport-photo",
+    content: (
+      <>
+        <p>
+          Getting the photo dimensions right is only half the battle on most government and visa
+          portals — the other half is the file size limit, and it trips people up constantly. A
+          photo that looks perfectly fine can still get rejected at upload because it's 40KB over
+          the cap.
+        </p>
+
+        <h2>Why file size limits exist at all</h2>
+        <p>
+          Government portals process enormous volumes of uploads, so most of them cap photo file
+          size (commonly somewhere in the 20KB–300KB range depending on the form) to keep their
+          systems fast and storage manageable. The limit has nothing to do with your photo's
+          actual quality — a sharp, well-lit photo compressed correctly can easily fit under 50KB
+          without looking noticeably different from the original.
+        </p>
+
+        <h2>Dimensions and file size are two separate requirements</h2>
+        <p>
+          It's easy to fix one and forget the other. A photo can be exactly the right pixel
+          dimensions (say, 200×230px for many Indian passport and exam forms) and still be too
+          large in KB if it wasn't compressed afterward — and vice versa. Both need to be checked
+          before you upload.
+        </p>
+
+        <h2>A reliable order of operations</h2>
+        <ol>
+          <li>Crop and size the photo correctly first — use our <a href="/tools/passport-photo">Passport Photo tool</a> for standard passport, visa, and ID dimensions.</li>
+          <li>Check the form's specific file size limit — it varies by portal, so don't assume it matches a different form you filled out before.</li>
+          <li>If the exported photo is still too large, run it through <a href="/tools/compress-image">Compress Image</a> with the exact KB limit as your target.</li>
+          <li>Re-check both dimensions and file size on the final file before uploading.</li>
+        </ol>
+
+        <h2>Always confirm on the actual portal</h2>
+        <p>
+          Requirements do change between form cycles and between agencies — a visa portal's limit
+          isn't necessarily the same as an exam board's or a passport office's. Treat any number
+          you've seen before as a starting point, not a guarantee, and confirm the current
+          requirement on the actual form you're submitting.
+        </p>
+      </>
+    ),
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {

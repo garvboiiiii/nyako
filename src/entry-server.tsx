@@ -30,6 +30,10 @@ export interface RouteMeta {
   path: string;
   title: string;
   description: string;
+  /** ISO date (YYYY-MM-DD). Used for <lastmod> in sitemap.xml. Blog posts
+   *  use their real publish date; everything else falls back to the build
+   *  date, which is still far more useful to crawlers than omitting it. */
+  lastmod?: string;
 }
 
 /** Every route worth prerendering, with the title/description Google should see. */
@@ -82,6 +86,7 @@ export function getAllRoutes(): RouteMeta[] {
       path: `/blog/${post.slug}`,
       title: `${post.title} — Nyako Blog`,
       description: post.description,
+      lastmod: post.publishDate,
     });
   }
 

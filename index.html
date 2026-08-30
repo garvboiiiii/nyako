@@ -125,23 +125,13 @@
       }
     </script>
 
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Nyako",
-        "url": "https://nyako.co.in/",
-        "applicationCategory": "Utility",
-        "operatingSystem": "Any (runs in browser)",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        },
-        "description": "Free file, image, and PDF tools that run entirely in your browser. No uploads, no signup, no watermarks."
-      }
-    </script>
+    <!--
+      Structured data (Organization/WebSite on every page, plus a
+      page-specific WebApplication/SoftwareApplication/Article/FAQPage
+      block) is rendered per-route by React — see src/lib/schema.ts —
+      so each prerendered page ships JSON-LD that actually describes
+      that page, instead of one static block duplicated everywhere.
+    -->
 
     <title>
       Nyako | Free PDF, Image & File Tools | No Login, No Watermarks

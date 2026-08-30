@@ -14,6 +14,8 @@ import HomePage from "./pages/HomePage";
 import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import JsonLd from "./components/JsonLd";
+import { organizationSchema, websiteSchema } from "./lib/schema";
 
 // Lazy-loaded: each tool's engine (pdf-lib, pdf.js, browser-image-compression, ...)
 // only ships to the browser when that specific tool page is visited.
@@ -42,6 +44,10 @@ export default function App() {
   return (
     <ErrorBoundary>
       <div className="min-h-screen flex flex-col">
+        {/* Site-wide identity schema — present on every page so Google
+            can associate all routes with the same Organization/WebSite
+            entity (helps sitelinks and knowledge-panel eligibility). */}
+        <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <ScrollToTop />
         <OfflineBanner />
         <Header />

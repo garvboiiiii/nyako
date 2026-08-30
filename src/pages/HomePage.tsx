@@ -18,6 +18,8 @@ import RecentAndFavorites from "../components/RecentAndFavorites";
 import HomeDropZone from "../components/HomeDropZone";
 import { TOOLS, CATEGORIES, type CategoryId } from "../lib/intent/dictionary";
 import { useCanonicalUrl } from "../lib/useCanonicalUrl";
+import JsonLd from "../components/JsonLd";
+import { webApplicationSchema } from "../lib/schema";
 
 const SUGGESTION_CHIPS = [
   { label: "Compress Image", slug: "compress-image" },
@@ -91,6 +93,7 @@ export default function HomePage() {
 
   return (
     <>
+      <JsonLd data={webApplicationSchema()} />
       <HomeDropZone />
 
       {/* HERO */}

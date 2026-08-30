@@ -4,6 +4,8 @@ import { getToolById, getRelatedByCategory, CATEGORIES } from "../lib/intent/dic
 import { BLOG_POSTS } from "../content/blogPosts";
 import AdUnit from "./AdUnit";
 import { MANUAL_AD_SLOT } from "../config/ads";
+import JsonLd from "./JsonLd";
+import { toolSchema } from "../lib/schema";
 
 export default function ToolInfoFooter({ toolId }: { toolId: string }) {
   const tool = getToolById(toolId);
@@ -14,6 +16,11 @@ export default function ToolInfoFooter({ toolId }: { toolId: string }) {
 
   return (
     <div className="mt-12 space-y-10">
+      {/* SoftwareApplication + FAQPage + BreadcrumbList structured data.
+          Lives here (not the page shell) so every tool page gets it from
+          a single source of truth, keyed off the same tool record that
+          already drives the on-page FAQ copy above. */}
+      <JsonLd data={toolSchema(tool)} />
       <section>
         <h2 className="font-display text-xl font-semibold text-ink mb-3">{tool.title}: what this tool does</h2>
         <p className="text-sm text-text-dim leading-relaxed max-w-3xl">{tool.longDescription}</p>

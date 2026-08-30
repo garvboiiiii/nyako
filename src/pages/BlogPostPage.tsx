@@ -8,6 +8,8 @@ import { useCanonicalUrl } from "../lib/useCanonicalUrl";
 import { getBlogEnhancement } from "../content/blogEnhancements";
 import AdUnit from "../components/AdUnit";
 import { MANUAL_AD_SLOT } from "../config/ads";
+import JsonLd from "../components/JsonLd";
+import { articleSchema } from "../lib/schema";
 
 
 export default function BlogPostPage() {
@@ -25,6 +27,8 @@ export default function BlogPostPage() {
 
   return (
     <article className="max-w-2xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+      <JsonLd data={articleSchema(post)} />
+
       <Link to="/blog" className="inline-flex items-center gap-1.5 text-sm text-text-dim hover:text-ink transition mb-8 focus-ring">
         <ArrowLeft size={14} /> All guides
       </Link>

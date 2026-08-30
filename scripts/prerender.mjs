@@ -156,10 +156,16 @@ function buildSitemap(routes) {
     return "0.5";
   };
 
+  // Real publish date for blog posts (set in entry-server.tsx from
+  // BLOG_POSTS); every other route falls back to today's build date.
+  // A sitemap with no <lastmod> at all gives Google zero signal about
+  // what's fresh vs. static, so this fallback is still worth having.
+  const buildDate = new Date().toISOString().slice(0, 10);
+
   const urls = routes
     .map(
       (route) =>
-        `  <url>\n    <loc>https://nyako.co.in${route.path}</loc>\n    <priority>${priorityFor(route.path)}</priority>\n  </url>`
+        `  <url>\n    <loc>https://nyako.co.in${route.path}</loc>\n    <lastmod>${route.lastmod ?? buildDate}</lastmod>\n    <priority>${priorityFor(route.path)}</priority>\n  </url>`
     )
     .join("\n");
 

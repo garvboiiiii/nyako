@@ -13,6 +13,8 @@ import HomePage from "./pages/HomePage";
 import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import JsonLd from "./components/JsonLd";
+import { organizationSchema, websiteSchema } from "./lib/schema";
 
 // Same pages as App.tsx, but imported eagerly (no React.lazy) since this
 // tree is only ever used for build-time prerendering in Node — never
@@ -43,6 +45,9 @@ export default function AppServer() {
   return (
     <ErrorBoundary>
       <div className="min-h-screen flex flex-col">
+        {/* Kept identical to the same block in App.tsx (same position in
+            the tree) so client hydration matches the prerendered HTML. */}
+        <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <ScrollToTop />
         <OfflineBanner />
         <Header />
