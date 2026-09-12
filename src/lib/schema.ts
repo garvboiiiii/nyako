@@ -12,6 +12,7 @@ export function organizationSchema() {
     name: SITE_NAME,
     url: `${SITE_ORIGIN}/`,
     logo: LOGO_URL,
+    sameAs: ["https://x.com/NyakoHQ"],
   };
 }
 
@@ -50,7 +51,7 @@ export function webApplicationSchema() {
       priceCurrency: "USD",
     },
     description:
-      "Free file, image, and PDF tools that run entirely in your browser. Compress, merge, convert, and sign files. No uploads, no signup, no watermarks.",
+      "Free PDF, image, and file tools for everyday document work. Many tools process files locally in your browser, with no signup or watermarks.",
   };
 }
 
@@ -94,31 +95,35 @@ export function toolSchema(tool: ToolDefinition) {
     applicationCategory: "Utility",
     operatingSystem: "Any (runs in browser)",
     description: tool.seoDescription,
+    featureList: [tool.description, ...tool.whyUseIt],
     offers: {
       "@type": "Offer",
       price: "0",
       priceCurrency: "USD",
     },
-    ...(tool.faq.length > 0
-      ? {
-          mainEntity: tool.faq.map((f) => ({
-            "@type": "Question",
-            name: f.q,
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: f.a,
-            },
-          })),
-        }
-      : {}),
   };
+
+  const faq = tool.faq.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: tool.faq.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: f.a,
+          },
+        })),
+      }
+    : null;
 
   const breadcrumb = breadcrumbSchema([
     { name: "Home", path: "/" },
     { name: tool.title, path: `/tools/${tool.slug}` },
   ]);
 
-  return [softwareApp, breadcrumb];
+  return faq ? [softwareApp, faq, breadcrumb] : [softwareApp, breadcrumb];
 }
 
 export function articleSchema(post: BlogPost) {
@@ -130,6 +135,8 @@ export function articleSchema(post: BlogPost) {
     headline: post.title,
     description: post.description,
     url,
+    image: LOGO_URL,
+    inLanguage: "en",
     datePublished: post.publishDate,
     dateModified: post.publishDate,
     author: {

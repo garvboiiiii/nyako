@@ -6,7 +6,7 @@ import { BLOG_POSTS } from "../content/blogPosts";
 import { useCanonicalUrl } from "../lib/useCanonicalUrl";
 
 export default function BlogPage() {
-  usePageTitle("Blog");
+  usePageTitle("PDF, Image & File Guides");
   useMetaDescription("Guides on file formats, compression, and getting document work done faster — from the team behind Nyako.");
   useCanonicalUrl("/blog");
   
@@ -17,10 +17,12 @@ export default function BlogPage() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
-      <p className="font-display text-xs uppercase tracking-wide text-primary font-medium">Blog</p>
-      <h1 className="font-display text-2xl sm:text-3xl font-bold mt-1 mb-2">Guides &amp; tips</h1>
-      <p className="text-text-dim mb-10">
-        Practical guides on file formats, compression, and getting document work done faster.
+      <p className="font-display text-xs uppercase tracking-wide text-primary font-medium">Nyako Guides</p>
+      <h1 className="font-display text-2xl sm:text-3xl font-bold mt-1 mb-2">Practical guides for files, PDFs &amp; images</h1>
+      <p className="text-text-dim mb-10 leading-relaxed">
+        Original, task-focused explanations for common file problems: choosing formats,
+        reducing file size, converting documents, preparing images, and checking the result
+        before you share or submit it.
       </p>
 
       <div className="space-y-6">

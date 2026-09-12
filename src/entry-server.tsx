@@ -43,7 +43,7 @@ export function getAllRoutes(): RouteMeta[] {
       path: "/",
       title: "Nyako | Free PDF, Image & File Tools | No Login, No Watermarks",
       description:
-        "Nyako — free file, image, and PDF tools that run entirely in your browser. Compress, merge, convert, and sign files. No uploads, no signup, no watermarks.",
+        "Free PDF, image, and file tools with practical guides for everyday document work. Many tools process files locally in your browser; no signup or watermarks.",
     },
     {
       path: "/about",
@@ -67,8 +67,8 @@ export function getAllRoutes(): RouteMeta[] {
     },
     {
       path: "/blog",
-      title: "Blog — Nyako",
-      description: "Guides and tips for working with PDFs, images, and documents.",
+      title: "PDF, Image & File Guides — Nyako",
+      description: "Practical, original guides for compressing, converting, merging, splitting, resizing, and working with common files.",
     },
   ];
 

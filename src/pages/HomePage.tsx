@@ -20,6 +20,7 @@ import { TOOLS, CATEGORIES, type CategoryId } from "../lib/intent/dictionary";
 import { useCanonicalUrl } from "../lib/useCanonicalUrl";
 import JsonLd from "../components/JsonLd";
 import { webApplicationSchema, faqPageSchema } from "../lib/schema";
+import { BLOG_POSTS } from "../content/blogPosts";
 
 const SUGGESTION_CHIPS = [
   { label: "Compress Image", slug: "compress-image" },
@@ -43,9 +44,9 @@ const POPULAR_TOOL_IDS = [
 ];
 
 const WHY_NYAKO = [
-  { icon: MonitorSmartphone, title: "Runs in your browser", body: "Every core tool processes files on your device — nothing is uploaded." },
+  { icon: MonitorSmartphone, title: "Runs in your browser", body: "Most core tools process files on your device — nothing is uploaded for those local tools." },
   { icon: LogIn, title: "No login", body: "Every tool works the moment you land on the page. No account needed." },
-  { icon: Lock, title: "Privacy first", body: "Your files stay on your device. We can't see them, so we can't leak them." },
+  { icon: Lock, title: "Privacy first", body: "For tools that process locally, your files stay on your device. The individual tool page explains its processing model." },
   { icon: Zap, title: "Lightning fast", body: "No upload, no queue, no waiting on a server. Processing starts instantly." },
   { icon: Ban, title: "No watermarks", body: "Free tools shouldn't punish you. Your output is clean, every time." },
   { icon: WifiOff, title: "Works offline", body: "Once a tool's loaded, most keep working without an internet connection." },
@@ -196,6 +197,46 @@ export default function HomePage() {
             </div>
           </div>
         )}
+      </section>
+
+      {/* LEARNING / GUIDES */}
+      <section id="guides" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24 scroll-mt-20">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">Learn</p>
+            <h2 className="font-display text-2xl sm:text-3xl font-bold">Practical guides for file work</h2>
+            <p className="mt-3 text-text-dim max-w-2xl leading-relaxed">
+              The tool is only part of the job. These guides explain file formats, compression,
+              document conversion, and the checks that help you avoid common mistakes.
+            </p>
+          </div>
+          <Link to="/blog" className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline shrink-0">
+            View all guides <ArrowRight size={14} />
+          </Link>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {[...BLOG_POSTS]
+            .sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime())
+            .slice(0, 6)
+            .map((post) => (
+              <Link
+                key={post.slug}
+                to={`/blog/${post.slug}`}
+                className="group rounded-2xl border border-line bg-surface p-5 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/5 transition-all"
+              >
+                <p className="text-xs text-text-dim mb-2">
+                  {new Date(post.publishDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+                  <span className="mx-2">•</span>{post.readTimeMinutes} min read
+                </p>
+                <h3 className="font-display font-semibold leading-snug group-hover:text-primary transition">{post.title}</h3>
+                <p className="mt-2 text-sm text-text-dim leading-relaxed">{post.description}</p>
+                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
+                  Read guide <ArrowRight size={14} />
+                </span>
+              </Link>
+            ))}
+        </div>
       </section>
 
       {/* WHY NYAKO */}

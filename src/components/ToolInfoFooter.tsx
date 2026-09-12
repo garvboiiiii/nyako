@@ -7,6 +7,7 @@ import AdUnit from "./AdUnit";
 import { MANUAL_AD_SLOT } from "../config/ads";
 import JsonLd from "./JsonLd";
 import { toolSchema } from "../lib/schema";
+import ToolLearningSection from "./ToolLearningSection";
 
 export default function ToolInfoFooter({ toolId }: { toolId: string }) {
   const tool = getToolById(toolId);
@@ -64,6 +65,8 @@ export default function ToolInfoFooter({ toolId }: { toolId: string }) {
           </div>
         </section>
       )}
+
+      <ToolLearningSection toolId={toolId} />
 
       <section className="rounded-2xl border border-line bg-surface p-5 sm:p-6">
         <div className="flex items-center gap-2 mb-3">

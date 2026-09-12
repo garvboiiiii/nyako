@@ -14,8 +14,12 @@ export default function Footer() {
             Terms of Service
           </Link>
 
+          <Link to="/blog" className="hover:text-blue-600">
+            Guides
+          </Link>
+
           <Link to="/about" className="hover:text-blue-600">
-            About Me
+            About Nyako
           </Link>
 
           <Link to="/contact" className="hover:text-blue-600">

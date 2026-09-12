@@ -2,162 +2,140 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://nyako.co.in/</loc>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://nyako.co.in/blog</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://nyako.co.in/blog/compress-pdf-for-email</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nyako.co.in/blog/png-vs-jpg-vs-webp</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nyako.co.in/blog/passport-photo-at-home</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nyako.co.in/blog/merge-multiple-pdfs-into-one</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nyako.co.in/blog/transparent-signature-for-documents</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nyako.co.in/blog/ocr-extract-text-from-scanned-document</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nyako.co.in/blog/resize-image-without-losing-quality</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nyako.co.in/blog/split-pdf-into-separate-pages</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nyako.co.in/blog/convert-pdf-to-word</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nyako.co.in/blog/how-to-crop-an-image</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nyako.co.in/blog/how-to-rotate-a-pdf</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nyako.co.in/blog/convert-pdf-pages-to-images</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nyako.co.in/blog/turn-photos-into-a-pdf</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nyako.co.in/blog/delete-pages-from-a-pdf</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nyako.co.in/blog/extract-pages-from-a-pdf</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nyako.co.in/privacy</loc>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://nyako.co.in/terms</loc>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://nyako.co.in/contact</loc>
-    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://nyako.co.in/about</loc>
-    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://nyako.co.in/contact</loc>
+  </url>
+  <url>
+    <loc>https://nyako.co.in/privacy</loc>
+  </url>
+  <url>
+    <loc>https://nyako.co.in/terms</loc>
+  </url>
+  <url>
+    <loc>https://nyako.co.in/blog</loc>
   </url>
   <url>
     <loc>https://nyako.co.in/tools/compress-image</loc>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nyako.co.in/tools/transparent-image</loc>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nyako.co.in/tools/resize-image</loc>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nyako.co.in/tools/crop-image</loc>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nyako.co.in/tools/passport-photo</loc>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nyako.co.in/tools/ocr-image</loc>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nyako.co.in/tools/convert-image-format</loc>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nyako.co.in/tools/image-to-pdf</loc>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nyako.co.in/tools/merge-pdf</loc>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nyako.co.in/tools/split-pdf</loc>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nyako.co.in/tools/compress-pdf</loc>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nyako.co.in/tools/pdf-to-images</loc>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nyako.co.in/tools/rotate-pdf</loc>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nyako.co.in/tools/delete-pdf-pages</loc>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nyako.co.in/tools/extract-pdf-pages</loc>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nyako.co.in/tools/pdf-to-word</loc>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nyako.co.in/tools/word-to-pdf</loc>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nyako.co.in/tools/excel-to-pdf</loc>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nyako.co.in/tools/ppt-to-pdf</loc>
-    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nyako.co.in/blog/compress-pdf-for-email</loc>
+  </url>
+  <url>
+    <loc>https://nyako.co.in/blog/png-vs-jpg-vs-webp</loc>
+  </url>
+  <url>
+    <loc>https://nyako.co.in/blog/passport-photo-at-home</loc>
+  </url>
+  <url>
+    <loc>https://nyako.co.in/blog/merge-multiple-pdfs-into-one</loc>
+  </url>
+  <url>
+    <loc>https://nyako.co.in/blog/transparent-signature-for-documents</loc>
+  </url>
+  <url>
+    <loc>https://nyako.co.in/blog/ocr-extract-text-from-scanned-document</loc>
+  </url>
+  <url>
+    <loc>https://nyako.co.in/blog/resize-image-without-losing-quality</loc>
+  </url>
+  <url>
+    <loc>https://nyako.co.in/blog/split-pdf-into-separate-pages</loc>
+  </url>
+  <url>
+    <loc>https://nyako.co.in/blog/convert-pdf-to-word</loc>
+  </url>
+  <url>
+    <loc>https://nyako.co.in/blog/how-to-crop-an-image</loc>
+  </url>
+  <url>
+    <loc>https://nyako.co.in/blog/how-to-rotate-a-pdf</loc>
+  </url>
+  <url>
+    <loc>https://nyako.co.in/blog/convert-pdf-pages-to-images</loc>
+  </url>
+  <url>
+    <loc>https://nyako.co.in/blog/turn-photos-into-a-pdf</loc>
+  </url>
+  <url>
+    <loc>https://nyako.co.in/blog/delete-pages-from-a-pdf</loc>
+  </url>
+  <url>
+    <loc>https://nyako.co.in/blog/extract-pages-from-a-pdf</loc>
+  </url>
+  <url>
+    <loc>https://nyako.co.in/blog/compress-image-without-losing-quality</loc>
+  </url>
+  <url>
+    <loc>https://nyako.co.in/blog/convert-word-to-pdf</loc>
+  </url>
+  <url>
+    <loc>https://nyako.co.in/blog/convert-excel-to-pdf</loc>
+  </url>
+  <url>
+    <loc>https://nyako.co.in/blog/convert-ppt-to-pdf</loc>
+  </url>
+  <url>
+    <loc>https://nyako.co.in/blog/free-pdf-tools-no-signup</loc>
+  </url>
+  <url>
+    <loc>https://nyako.co.in/blog/passport-photo-file-size-requirements</loc>
   </url>
 </urlset>

@@ -64,7 +64,10 @@ async function main() {
   }
 
   // Cloudflare Pages can use this as the SPA fallback for unknown routes.
-  await writeFile(path.join(clientDir, "404.html"), template, "utf-8");
+  const notFoundHtml = template
+    .replace(/<meta\s+name="robots"[\s\S]*?\/>/, '<meta name="robots" content="noindex,nofollow" />')
+    .replace(/<title>[\s\S]*?<\/title>/, '<title>Page not found — Nyako</title>');
+  await writeFile(path.join(clientDir, "404.html"), notFoundHtml, "utf-8");
 
   await writeFile(path.join(clientDir, "sitemap.xml"), buildSitemap(routes), "utf-8");
   console.log(`  ✓ sitemap.xml (${routes.length} urls)`);
@@ -105,6 +108,18 @@ function injectIntoTemplate(template, appHtml, route) {
     `<meta name="description" content="${escapeHtml(route.description)}" />`
   );
 
+  html = replaceOrInsert(
+    html,
+    /<meta\s+name="robots"[\s\S]*?\/>/,
+    `<meta name="robots" content="index,follow,max-image-preview:large" />`
+  );
+
+  html = replaceOrInsert(
+    html,
+    /<meta\s+name="googlebot"[\s\S]*?\/>/,
+    `<meta name="googlebot" content="index,follow,max-image-preview:large" />`
+  );
+
   const canonical = `https://nyako.co.in${route.path}`;
   html = replaceOrInsert(
     html,
@@ -138,6 +153,31 @@ function injectIntoTemplate(template, appHtml, route) {
     /<meta\s+name="twitter:description"[\s\S]*?\/>/,
     `<meta name="twitter:description" content="${escapeHtml(route.description)}" />`
   );
+  html = replaceOrInsert(
+    html,
+    /<meta\s+property="og:type"[\s\S]*?\/>/,
+    `<meta property="og:type" content="${route.path.startsWith("/blog/") ? "article" : "website"}" />`
+  );
+  html = replaceOrInsert(
+    html,
+    /<meta\s+property="og:image"[\s\S]*?\/>/,
+    `<meta property="og:image" content="https://nyako.co.in/og-image.png" />`
+  );
+  html = replaceOrInsert(
+    html,
+    /<meta\s+property="og:image:alt"[\s\S]*?\/>/,
+    `<meta property="og:image:alt" content="Nyako — free file, image and PDF tools" />`
+  );
+  html = replaceOrInsert(
+    html,
+    /<meta\s+name="twitter:card"[\s\S]*?\/>/,
+    `<meta name="twitter:card" content="summary_large_image" />`
+  );
+  html = replaceOrInsert(
+    html,
+    /<meta\s+name="twitter:image"[\s\S]*?\/>/,
+    `<meta name="twitter:image" content="https://nyako.co.in/og-image.png" />`
+  );
 
   return html;
 }
@@ -148,25 +188,15 @@ function replaceOrInsert(html, pattern, replacement, before = "</head>") {
 }
 
 function buildSitemap(routes) {
-  const priorityFor = (p) => {
-    if (p === "/") return "1.0";
-    if (p.startsWith("/tools/")) return "0.9";
-    if (p === "/blog") return "0.8";
-    if (p.startsWith("/blog/")) return "0.7";
-    return "0.5";
-  };
 
-  // Real publish date for blog posts (set in entry-server.tsx from
-  // BLOG_POSTS); every other route falls back to today's build date.
-  // A sitemap with no <lastmod> at all gives Google zero signal about
-  // what's fresh vs. static, so this fallback is still worth having.
-  const buildDate = new Date().toISOString().slice(0, 10);
-
+  // Only publish lastmod when the route has a meaningful content date.
+  // Do not stamp every URL with the build date: that creates a false
+  // freshness signal whenever the project is deployed.
   const urls = routes
-    .map(
-      (route) =>
-        `  <url>\n    <loc>https://nyako.co.in${route.path}</loc>\n    <lastmod>${route.lastmod ?? buildDate}</lastmod>\n    <priority>${priorityFor(route.path)}</priority>\n  </url>`
-    )
+    .map((route) => {
+      const lastmod = route.lastmod ? `\n    <lastmod>${route.lastmod}</lastmod>` : "";
+      return `  <url>\n    <loc>https://nyako.co.in${route.path}</loc>${lastmod}\n  </url>`;
+    })
     .join("\n");
 
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
