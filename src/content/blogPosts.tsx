@@ -1119,6 +1119,543 @@ export const BLOG_POSTS: BlogPost[] = [
       </>
     ),
   },
+  {
+    slug: "reduce-image-size-for-website",
+    title: "How to Reduce Image File Size for a Faster Website",
+    description:
+      "Oversized images are still the most common cause of a slow-loading page. Here's how to shrink them without visibly hurting quality, and which format to start from.",
+    publishDate: "2026-08-29",
+    readTimeMinutes: 5,
+    relatedToolSlug: "compress-image",
+    content: (
+      <>
+        <p>
+          A camera or phone captures photos at a resolution meant for printing or zooming in —
+          often 3000px or more on the long edge. Almost no website ever displays an image that
+          large. If you upload it straight to a blog post or product page without resizing or
+          compressing it first, the visitor's browser downloads all of that unused resolution
+          before the page can even finish loading.
+        </p>
+
+        <h2>Resize before you compress</h2>
+        <p>
+          Compression alone can only do so much if the image is still 4000px wide. Figure out
+          roughly how large the image will actually display (a blog hero image rarely needs to be
+          wider than 1600–2000px), and use our <a href="/tools/resize-image">Resize Image tool</a>{" "}
+          to bring it down to that size first. This one step often shrinks the file more than
+          compression settings alone would.
+        </p>
+
+        <h2>Then pick the right output format</h2>
+        <p>
+          Photos compress best as JPG or WebP; screenshots, logos, and anything with flat colors
+          or text compress best as PNG. Using the wrong format for the content is one of the
+          quietest ways a page ends up slow — see our{" "}
+          <a href="/blog/png-vs-jpg-vs-webp">PNG vs JPG vs WebP guide</a> for the full breakdown,
+          and use <a href="/tools/convert-image-format">Convert Image Format</a> to switch.
+        </p>
+
+        <h2>Compress to a target, not a guess</h2>
+        <p>
+          Rather than exporting at a vague "medium quality" setting, our{" "}
+          <a href="/tools/compress-image">Compress Image tool</a> lets you set an actual target
+          file size in KB. For most web images, aiming for somewhere under 150–250KB per image is
+          a reasonable starting point — small enough to load fast, large enough to still look
+          sharp at typical display sizes.
+        </p>
+
+        <h2>A quick pre-upload checklist</h2>
+        <ul>
+          <li>Resize to roughly the display size first — not the camera's original resolution.</li>
+          <li>Use JPG or WebP for photos, PNG only for graphics that need flat, sharp edges.</li>
+          <li>Compress to a specific KB target rather than eyeballing a quality slider.</li>
+          <li>Check the image at actual display size afterward, not just zoomed in.</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    slug: "heic-to-jpg-iphone-photos",
+    title: "How to Convert iPhone HEIC Photos to JPG",
+    description:
+      "iPhones save photos as HEIC by default — a format plenty of older software and upload forms still don't recognize. Here's how to get a JPG copy reliably.",
+    publishDate: "2026-09-01",
+    readTimeMinutes: 5,
+    relatedToolSlug: "convert-image-format",
+    content: (
+      <>
+        <p>
+          Since iOS 11, iPhones save photos as HEIC by default — a format that compresses better
+          than JPG at the same quality, which is why Apple switched to it. The catch is that
+          HEIC support isn't universal. Some upload forms, older Windows software, and certain
+          printers still expect a plain JPG and will simply reject a HEIC file outright.
+        </p>
+
+        <h2>Why the browser matters here</h2>
+        <p>
+          Converting an image in the browser depends on the browser being able to open it in the
+          first place. Safari on macOS and iOS can decode HEIC natively, so a browser-based
+          converter tends to work well there. Chrome and Firefox on Windows generally can't decode
+          HEIC on their own, which means a HEIC file may fail to open in <em>any</em>{" "}
+          browser-based tool — not just ours — until it's already been converted to something more
+          universal.
+        </p>
+
+        <h2>The most reliable starting point</h2>
+        <p>
+          If you're on an iPhone or Mac, try our{" "}
+          <a href="/tools/convert-image-format">Convert Image Format tool</a> directly in Safari
+          first. If you're on Windows and the file won't open, the fastest fix is exporting a JPG
+          copy from the Photos app itself before it ever reaches a browser: open the photo, use
+          the share sheet, and choose "Save as JPEG" (or AirDrop/email it to yourself, which
+          converts it automatically on many iPhones).
+        </p>
+
+        <h2>Stop it from happening again</h2>
+        <p>
+          If this trips you up often, change the capture format going forward:{" "}
+          <strong>Settings → Camera → Formats → "Most Compatible"</strong> saves new photos
+          directly as JPG instead of HEIC. It's a slightly larger file per photo, but it removes
+          the conversion step entirely for anything you shoot afterward.
+        </p>
+
+        <h2>Once you have a JPG</h2>
+        <p>
+          If the converted photo is now larger than you need, our{" "}
+          <a href="/tools/resize-image">Resize Image</a> and{" "}
+          <a href="/tools/compress-image">Compress Image</a> tools can bring it down to a
+          reasonable size for email or upload, entirely in your browser.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "social-media-image-size-guide",
+    title: "Image Dimensions for Instagram, Facebook, and LinkedIn",
+    description:
+      "The pixel dimensions social platforms commonly expect, and how to resize a photo to fit them without an awkward crop.",
+    publishDate: "2026-09-02",
+    readTimeMinutes: 5,
+    relatedToolSlug: "resize-image",
+    content: (
+      <>
+        <p>
+          Every platform wants a slightly different shape, and uploading the wrong one usually
+          means an automatic crop that cuts off exactly the part of the photo you cared about.
+          Here are the dimensions that generally work well as of this writing — platforms do
+          update these from time to time, so treat this as a solid starting point and confirm on
+          the platform's own help page if precision really matters for a specific campaign.
+        </p>
+
+        <h2>Instagram</h2>
+        <ul>
+          <li>Feed post (portrait, most space in the app): 1080×1350px</li>
+          <li>Feed post (square): 1080×1080px</li>
+          <li>Story or Reel: 1080×1920px</li>
+        </ul>
+
+        <h2>Facebook</h2>
+        <ul>
+          <li>Shared photo: 1200×630px</li>
+          <li>Cover photo: 820×312px</li>
+          <li>Profile photo: 720×720px (displays as a circle, so keep the subject centered)</li>
+        </ul>
+
+        <h2>LinkedIn</h2>
+        <ul>
+          <li>Profile photo: 400×400px</li>
+          <li>Cover banner: 1584×396px</li>
+          <li>Shared post image: 1200×627px</li>
+        </ul>
+
+        <h2>If you only remember one rule</h2>
+        <p>
+          Square (1:1) and portrait-ish (4:5) images are the safest bets across almost every
+          platform — they crop predictably and rarely lose the subject. Extremely wide or
+          extremely tall images are the ones that get cropped unpredictably.
+        </p>
+
+        <h2>Resizing without stretching the photo</h2>
+        <p>
+          Changing width and height independently distorts faces and objects. Our{" "}
+          <a href="/tools/resize-image">Resize Image tool</a> keeps the aspect ratio locked by
+          default, and if the source photo's proportions don't match the target at all, crop it to
+          the right shape first with <a href="/tools/crop-image">Crop Image</a> — see our{" "}
+          <a href="/blog/how-to-crop-an-image">image cropping guide</a> for the basics — then
+          resize the cropped result to the exact pixel dimensions above.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "crop-photo-to-square",
+    title: "How to Crop a Photo to a Perfect Square",
+    description:
+      "Profile pictures, thumbnails, and app icons almost always want a square. Here's the fastest way to get one without cutting off the wrong part of the photo.",
+    publishDate: "2026-09-04",
+    readTimeMinutes: 4,
+    relatedToolSlug: "crop-image",
+    content: (
+      <>
+        <p>
+          Almost every profile photo field — LinkedIn, Slack, GitHub, WhatsApp, app store
+          listings — expects a square image, but almost no photo comes out of a camera as a
+          square. The result is usually an automatic crop that lops off part of a head or shifts
+          the subject off-center.
+        </p>
+
+        <h2>Center the subject before you crop</h2>
+        <p>
+          A square crop only looks right if the important part of the photo — usually a face —
+          sits roughly in the middle, with a little breathing room on every side. If the subject
+          is off to one side in the original photo, note roughly where you want the final square
+          to sit before you start dragging the crop box.
+        </p>
+
+        <h2>Lock the aspect ratio to 1:1</h2>
+        <p>
+          Our <a href="/tools/crop-image">Crop Image tool</a> lets you set a fixed 1:1 aspect
+          ratio, so the crop box always stays a perfect square as you resize and reposition it —
+          no eyeballing, no accidentally ending up with a slightly-off rectangle that looks wrong
+          once it's inside a circular avatar frame.
+        </p>
+
+        <h2>Watch out for circular crops</h2>
+        <p>
+          Many platforms take your square upload and mask it into a circle for the display avatar.
+          That means the corners of your square get cut off too — leave a bit of extra margin
+          around the subject rather than cropping right up to the edges, or the circular version
+          can end up cutting into hair or shoulders.
+        </p>
+
+        <h2>After cropping</h2>
+        <p>
+          If the cropped square is much larger than the platform actually needs, resize it down
+          with <a href="/tools/resize-image">Resize Image</a> — most avatar uploads only need to
+          be a few hundred pixels wide — and compress it with{" "}
+          <a href="/tools/compress-image">Compress Image</a> if there's a file size limit on the
+          upload form.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "screenshot-to-text-ocr",
+    title: "How to Extract Text from a Screenshot",
+    description:
+      "An error message, a quote, a table locked inside an image — here's how to pull the text back out as something you can actually copy and paste.",
+    publishDate: "2026-09-05",
+    readTimeMinutes: 4,
+    relatedToolSlug: "ocr-image",
+    content: (
+      <>
+        <p>
+          A screenshot is just a picture of text, not real text — which is why trying to select
+          and copy it does nothing. Optical character recognition (OCR) solves this by scanning
+          the image for letter-shaped patterns and turning them back into a text you can paste
+          anywhere.
+        </p>
+
+        <h2>Get a clean screenshot first</h2>
+        <p>
+          OCR accuracy depends heavily on the source image. A full-resolution screenshot taken
+          directly on your device will read far better than a photo of a screen, or a screenshot
+          that's been re-compressed several times by a messaging app before it reached you. If you
+          have a choice, take the screenshot yourself rather than using a forwarded copy.
+        </p>
+
+        <h2>Run it through OCR</h2>
+        <p>
+          Upload the screenshot to our <a href="/tools/ocr-image">OCR — Image to Text tool</a>,
+          which processes entirely in your browser and returns editable, copyable text within a
+          few seconds for most images.
+        </p>
+
+        <h2>What trips OCR up specifically on screenshots</h2>
+        <ul>
+          <li>Very small font sizes, especially UI text meant to be read at native resolution.</li>
+          <li>Low-contrast dark mode screenshots, where OCR engines have less edge contrast to work with.</li>
+          <li>Emoji, icons, and stylized logos, which OCR will try (and usually fail) to read as letters.</li>
+          <li>Dense tables, where column alignment can get scrambled in the extracted text.</li>
+        </ul>
+
+        <h2>Always read it back over</h2>
+        <p>
+          OCR is very good but not perfect, especially on numbers and unusual capitalization.
+          Before pasting extracted text somewhere that matters — a form, a number you'll act on —
+          compare it against the original screenshot. See our{" "}
+          <a href="/blog/ocr-extract-text-from-scanned-document">guide to OCR on scanned documents</a>{" "}
+          for the same checking habit applied to full scanned pages.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "delete-vs-extract-pdf-pages",
+    title: "Delete vs Extract PDF Pages: Which One Do You Need?",
+    description:
+      "Two PDF tools that sound almost identical but do opposite jobs. Here's a quick way to tell which one actually solves your problem.",
+    publishDate: "2026-09-06",
+    readTimeMinutes: 4,
+    relatedToolSlug: "delete-pdf-pages",
+    content: (
+      <>
+        <p>
+          "Remove some pages from this PDF" can mean two genuinely different things, and picking
+          the wrong tool means redoing the work. The distinction comes down to which pages you
+          actually want to keep — most of them, or only a few.
+        </p>
+
+        <h2>Delete pages: keep almost everything</h2>
+        <p>
+          Use <a href="/tools/delete-pdf-pages">Delete PDF Pages</a> when the majority of the
+          document is fine and you just need to remove a handful of specific pages — a blank scan,
+          a duplicate, an outdated cover sheet. You select what goes, and everything else stays in
+          its original order.
+        </p>
+
+        <h2>Extract pages: keep only a few</h2>
+        <p>
+          Use <a href="/tools/extract-pdf-pages">Extract PDF Pages</a> when it's the opposite —
+          you only need a small slice of a much larger document, like pulling out one signed form
+          from a 40-page contract bundle. You select what stays, and a brand-new PDF is created
+          from just those pages.
+        </p>
+
+        <h2>A fast way to decide</h2>
+        <p>
+          Count which side is shorter. If you'd need to click more pages to mark for deletion than
+          you'd need to click to mark for keeping, use Extract instead — it's less clicking and
+          less room for error either way.
+        </p>
+
+        <h2>What they have in common</h2>
+        <p>
+          Both tools process the PDF entirely in your browser, leave the original file untouched
+          unless you overwrite it yourself, and preserve the quality of every remaining page —
+          neither one re-compresses or re-renders anything, it's purely a page-selection
+          operation.
+        </p>
+
+        <h2>When you genuinely need both</h2>
+        <p>
+          Occasionally a document needs real restructuring — extract the relevant range from a
+          large scanned bundle, then delete a couple of blank pages that ended up inside that
+          range. If instead you need the document broken into several separate files rather than
+          one trimmed-down file, <a href="/tools/split-pdf">Split PDF</a> is the better fit — see{" "}
+          <a href="/blog/split-pdf-by-file-size">our guide on splitting large PDFs</a> for that
+          case.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "split-pdf-by-file-size",
+    title: "How to Split a Large PDF for an Upload Limit",
+    description:
+      "Sometimes you don't care about specific page ranges — you just need a huge PDF broken into pieces small enough to actually get through an upload limit.",
+    publishDate: "2026-09-08",
+    readTimeMinutes: 5,
+    relatedToolSlug: "split-pdf",
+    content: (
+      <>
+        <p>
+          Most PDF splitters, including ours, split by page — you choose where the breaks go, and
+          each resulting file contains a specific range of pages. That's slightly different from
+          the problem of "this 80MB file won't fit under this portal's 10MB limit," where you don't
+          care about page numbers at all, only about getting under a size cap.
+        </p>
+
+        <h2>Figure out why it's so large first</h2>
+        <p>
+          Before splitting anything, check whether the file is large because it's genuinely long,
+          or because a handful of image-heavy scanned pages are bloating an otherwise normal
+          document. If it's the latter, <a href="/tools/compress-pdf">Compress PDF</a> alone —
+          targeting a specific size — might solve the problem without splitting anything at all.
+          See our <a href="/blog/compress-pdf-for-email">guide to compressing a PDF for email</a>{" "}
+          for the same idea applied to attachment limits.
+        </p>
+
+        <h2>A workflow that reliably hits a size target</h2>
+        <ol>
+          <li>Compress the full document first, if it hasn't been already.</li>
+          <li>
+            If it's still too large, split it into roughly equal page ranges with{" "}
+            <a href="/tools/split-pdf">Split PDF</a> — halves, thirds, or however many pieces get
+            each chunk comfortably under the limit.
+          </li>
+          <li>Check each resulting file's size individually — an uneven document (a few pages with lots of images, the rest plain text) can split unevenly even with equal page counts.</li>
+          <li>Compress any chunk that's still over the limit on its own.</li>
+        </ol>
+
+        <h2>Keep the pieces in order</h2>
+        <p>
+          Once a document becomes several files, filenames are the only thing telling you their
+          order. Number them clearly (part-1, part-2, and so on) before sending or uploading them,
+          especially if they're going somewhere that will display them alphabetically rather than
+          in upload order.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "why-pdf-to-word-formatting-breaks",
+    title: "Why Your PDF to Word Conversion Looks Messy",
+    description:
+      "Shifted columns, wrong fonts, images in the wrong spot — here's why PDF to Word conversions get messy, and what's actually fixable versus what isn't.",
+    publishDate: "2026-09-09",
+    readTimeMinutes: 6,
+    relatedToolSlug: "pdf-to-word",
+    content: (
+      <>
+        <p>
+          PDF was designed to make a document look identical everywhere — every letter and image
+          is placed at an exact fixed position on the page. Word documents work completely
+          differently: paragraphs, tables, and images flow and reflow based on the document's
+          underlying structure. Converting from one to the other means guessing at that structure
+          from a file that was never designed to have one.
+        </p>
+
+        <h2>What usually converts cleanly</h2>
+        <p>
+          Simple, single-column documents — reports, letters, plain text-heavy pages without
+          complex layout — tend to convert well, because there's relatively little structural
+          guessing required. Our <a href="/tools/pdf-to-word">PDF to Word tool</a> handles this
+          kind of document reliably, right in your browser.
+        </p>
+
+        <h2>What tends to break</h2>
+        <ul>
+          <li><strong>Multi-column layouts</strong> — newsletters and academic papers can get read out of order, since the converter has to guess the reading flow.</li>
+          <li><strong>Tables</strong> — cell borders and alignment don't always translate cleanly into an editable Word table.</li>
+          <li><strong>Unusual fonts</strong> — if a font used in the PDF isn't installed on your system, Word substitutes a similar one, which can shift line breaks and spacing.</li>
+          <li><strong>Precisely positioned images and text boxes</strong> — a design-heavy flyer or brochure PDF is the hardest case, since it was never meant to reflow at all.</li>
+        </ul>
+
+        <h2>Scanned PDFs are a special case</h2>
+        <p>
+          If a PDF is really just a photograph of a page — common with scanned documents — there's
+          no text to convert at all, only pixels. Converting it needs OCR first to actually
+          recognize the letters; see our{" "}
+          <a href="/blog/ocr-extract-text-from-scanned-document">OCR guide</a> and try{" "}
+          <a href="/tools/ocr-image">OCR — Image to Text</a> on the page images before expecting
+          an editable result.
+        </p>
+
+        <h2>Realistic expectations</h2>
+        <p>
+          Treat a PDF-to-Word conversion as a strong head start, not a guaranteed perfect replica.
+          For anything with tables or multi-column layout, plan to spend a few minutes fixing
+          spacing and alignment afterward rather than expecting a pixel-perfect match — that's
+          normal, and true of every PDF-to-Word converter, not just this one.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "combine-scanned-documents-into-one-pdf",
+    title: "How to Combine Multiple Scanned Documents into One PDF",
+    description:
+      "Several phone scans, forms, or receipts that need to become a single tidy PDF before you submit or email them. Here's a clean workflow.",
+    publishDate: "2026-09-10",
+    readTimeMinutes: 5,
+    relatedToolSlug: "merge-pdf",
+    content: (
+      <>
+        <p>
+          Applications and submissions rarely ask for five separate files — they ask for "one PDF
+          containing everything." If you scanned each page or document separately with a phone
+          camera app, you likely have either several small PDFs or several photos, and need to get
+          them into a single ordered document.
+        </p>
+
+        <h2>Check your starting point first</h2>
+        <p>
+          If your scanning app already saved each document as its own PDF, you can merge them
+          directly. If instead you have plain photos of each page, convert them to PDF pages first
+          with <a href="/tools/image-to-pdf">Image to PDF</a> — see our{" "}
+          <a href="/blog/turn-photos-into-a-pdf">guide to turning photos into a PDF</a> — before
+          merging anything.
+        </p>
+
+        <h2>Get the order right before merging</h2>
+        <p>
+          Rename or reorder the individual files so they sort in the exact sequence you want the
+          final document to read in — cover page or form first, then supporting documents, in
+          whatever order the recipient actually expects. It's much easier to fix the order now
+          than to reopen a merged file and re-sort it later.
+        </p>
+
+        <h2>Merge them</h2>
+        <p>
+          Upload the files, in order, to our <a href="/tools/merge-pdf">Merge PDF tool</a>. It
+          combines them into a single document locally in your browser — nothing is uploaded to a
+          server in the process. See our{" "}
+          <a href="/blog/merge-multiple-pdfs-into-one">full merging guide</a> for tips on handling
+          mixed page sizes and orientations.
+        </p>
+
+        <h2>Compress if the result is too large</h2>
+        <p>
+          Several phone scans merged together can add up quickly, especially at full camera
+          resolution. If the combined PDF is too big for an email attachment or upload form, run
+          it through <a href="/tools/compress-pdf">Compress PDF</a> with a specific target size —
+          our <a href="/blog/compress-pdf-for-email">guide to compressing a PDF for email</a>{" "}
+          walks through choosing a sensible target.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "excel-to-pdf-columns-cut-off-fix",
+    title: "Excel to PDF: How to Stop Columns Getting Cut Off",
+    description:
+      "Export a wide spreadsheet to PDF and half the columns vanish off the edge of the page. Here's why it happens and how to get a complete, readable PDF.",
+    publishDate: "2026-09-11",
+    readTimeMinutes: 5,
+    relatedToolSlug: "excel-to-pdf",
+    content: (
+      <>
+        <p>
+          A spreadsheet doesn't have "pages" the way a document does — it's one continuous grid.
+          When you export it to PDF, Excel has to decide where to cut that grid into page-sized
+          chunks, and by default it usually cuts by the sheet's normal print area, which was never
+          set up with a PDF in mind. The result: columns past a certain point simply don't appear
+          on any page.
+        </p>
+
+        <h2>Fix the print settings in Excel first</h2>
+        <p>
+          This is worth fixing at the source rather than after the fact, since a PDF with missing
+          columns can't have that data added back in afterward.
+        </p>
+        <ul>
+          <li><strong>Set the print area</strong> to exactly the range you want included — Page Layout → Print Area → Set Print Area.</li>
+          <li><strong>Switch to landscape orientation</strong> for wide sheets — Page Layout → Orientation → Landscape.</li>
+          <li><strong>Use "Fit to 1 page wide"</strong> under Page Layout → Scale to Fit, so every column shrinks to fit the page width instead of getting cut off.</li>
+          <li><strong>Preview page breaks</strong> under View → Page Break Preview to see exactly where Excel plans to split the sheet before you export.</li>
+        </ul>
+
+        <h2>Then convert</h2>
+        <p>
+          Once the print area and layout look right in Excel's own preview, export or save as PDF,
+          or upload the file directly to our{" "}
+          <a href="/tools/excel-to-pdf">Excel to PDF tool</a>, which converts it locally in your
+          browser.
+        </p>
+
+        <h2>If you already have the cut-off PDF</h2>
+        <p>
+          There's no reliable way to recover columns that were never rendered onto any page in the
+          first place — the fix has to happen back in the spreadsheet, then be re-converted. If
+          the PDF is otherwise fine and only a couple of pages came out sideways or in the wrong
+          order, <a href="/tools/rotate-pdf">Rotate PDF</a> and{" "}
+          <a href="/tools/extract-pdf-pages">Extract PDF Pages</a> can help clean up the export
+          without redoing the whole thing.
+        </p>
+      </>
+    ),
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {

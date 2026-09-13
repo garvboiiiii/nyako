@@ -20,7 +20,7 @@ import { TOOLS, CATEGORIES, type CategoryId } from "../lib/intent/dictionary";
 import { useCanonicalUrl } from "../lib/useCanonicalUrl";
 import JsonLd from "../components/JsonLd";
 import { webApplicationSchema, faqPageSchema } from "../lib/schema";
-import { BLOG_POSTS } from "../content/blogPosts";
+import { BLOG_POSTS, getPostBySlug } from "../content/blogPosts";
 
 const SUGGESTION_CHIPS = [
   { label: "Compress Image", slug: "compress-image" },
@@ -43,6 +43,35 @@ const POPULAR_TOOL_IDS = [
   "ocr-image",
 ];
 
+// Hand-picked spread across categories (PDF, image, conversion, OCR,
+// compression, signature, passport) rather than a pure "most recent" sort,
+// so the homepage always surfaces a mix of cornerstone and newer guides
+// instead of only whatever was published last.
+const FEATURED_GUIDE_SLUGS = [
+  "compress-pdf-for-email",
+  "png-vs-jpg-vs-webp",
+  "passport-photo-at-home",
+  "merge-multiple-pdfs-into-one",
+  "transparent-signature-for-documents",
+  "screenshot-to-text-ocr",
+  "social-media-image-size-guide",
+  "delete-vs-extract-pdf-pages",
+  "excel-to-pdf-columns-cut-off-fix",
+];
+
+// One representative guide per topic, used for the quick-link row under the
+// guides heading — gives crawlers and readers another path into the guide
+// library, grouped by the kind of problem rather than publish date.
+const GUIDE_TOPICS: { label: string; slug: string }[] = [
+  { label: "Compression", slug: "reduce-image-size-for-website" },
+  { label: "PDF pages", slug: "delete-vs-extract-pdf-pages" },
+  { label: "Image formats", slug: "png-vs-jpg-vs-webp" },
+  { label: "OCR", slug: "screenshot-to-text-ocr" },
+  { label: "Signatures", slug: "transparent-signature-for-documents" },
+  { label: "Passport photos", slug: "passport-photo-file-size-requirements" },
+  { label: "Office to PDF", slug: "excel-to-pdf-columns-cut-off-fix" },
+];
+
 const WHY_NYAKO = [
   { icon: MonitorSmartphone, title: "Runs in your browser", body: "Most core tools process files on your device — nothing is uploaded for those local tools." },
   { icon: LogIn, title: "No login", body: "Every tool works the moment you land on the page. No account needed." },
@@ -50,6 +79,13 @@ const WHY_NYAKO = [
   { icon: Zap, title: "Lightning fast", body: "No upload, no queue, no waiting on a server. Processing starts instantly." },
   { icon: Ban, title: "No watermarks", body: "Free tools shouldn't punish you. Your output is clean, every time." },
   { icon: WifiOff, title: "Works offline", body: "Once a tool's loaded, most keep working without an internet connection." },
+];
+
+const CATEGORY_LINKS: { category: CategoryId; example: string; slug: string }[] = [
+  { category: "pdf", example: "compressing a PDF for email", slug: "compress-pdf-for-email" },
+  { category: "image", example: "resizing photos for social media", slug: "social-media-image-size-guide" },
+  { category: "conversion", example: "converting Excel to a clean PDF", slug: "excel-to-pdf-columns-cut-off-fix" },
+  { category: "ocr", example: "pulling text out of a screenshot", slug: "screenshot-to-text-ocr" },
 ];
 
 const FAQS = [
@@ -169,9 +205,20 @@ export default function HomePage() {
         <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3 text-center">
           {category ? CATEGORIES[category].label : "Popular Tools"}
         </p>
-        <h2 className="font-display text-2xl sm:text-3xl font-bold text-center mb-8">
+        <h2 className="font-display text-2xl sm:text-3xl font-bold text-center mb-4">
           {category ? CATEGORIES[category].description : "Everything you need, in one place"}
         </h2>
+
+        {category === null && (
+          <p className="text-center text-text-dim max-w-2xl mx-auto mb-8 leading-relaxed">
+            Nyako bundles the file tasks people actually run into — <Link to="/tools/compress-pdf" className="text-primary hover:underline">compress a PDF</Link>{" "}
+            down to a target size, <Link to="/tools/merge-pdf" className="text-primary hover:underline">merge PDFs</Link>{" "}
+            into one document, <Link to="/tools/passport-photo" className="text-primary hover:underline">crop a passport photo</Link>{" "}
+            to spec, or <Link to="/tools/convert-image-format" className="text-primary hover:underline">convert between image formats</Link>{" "}
+            — as a single free toolkit instead of nineteen different websites. Pick a category below,
+            or search for what you need at the top of the page.
+          </p>
+        )}
 
         <CategoryFilter selected={category} onChange={setCategory} />
 
@@ -206,19 +253,38 @@ export default function HomePage() {
             <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">Learn</p>
             <h2 className="font-display text-2xl sm:text-3xl font-bold">Practical guides for file work</h2>
             <p className="mt-3 text-text-dim max-w-2xl leading-relaxed">
-              The tool is only part of the job. These guides explain file formats, compression,
-              document conversion, and the checks that help you avoid common mistakes.
+              The tool is only part of the job. These {BLOG_POSTS.length} guides explain file
+              formats, compression targets, document conversion quirks, and the checks that help
+              you avoid the most common mistakes — from getting a{" "}
+              <Link to="/blog/passport-photo-file-size-requirements" className="text-primary hover:underline">
+                passport photo under a KB limit
+              </Link>{" "}
+              to figuring out why a{" "}
+              <Link to="/blog/why-pdf-to-word-formatting-breaks" className="text-primary hover:underline">
+                PDF to Word conversion looks messy
+              </Link>.
             </p>
           </div>
           <Link to="/blog" className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline shrink-0">
-            View all guides <ArrowRight size={14} />
+            View all {BLOG_POSTS.length} guides <ArrowRight size={14} />
           </Link>
         </div>
 
+        <div className="flex flex-wrap gap-2 mb-8">
+          {GUIDE_TOPICS.map((topic) => (
+            <Link
+              key={topic.slug}
+              to={`/blog/${topic.slug}`}
+              className="text-sm px-3.5 py-1.5 rounded-full border border-line bg-surface hover:border-primary/40 hover:text-primary transition focus-ring"
+            >
+              {topic.label}
+            </Link>
+          ))}
+        </div>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {[...BLOG_POSTS]
-            .sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime())
-            .slice(0, 6)
+          {FEATURED_GUIDE_SLUGS.map(getPostBySlug)
+            .filter((post): post is NonNullable<typeof post> => Boolean(post))
             .map((post) => (
               <Link
                 key={post.slug}
@@ -279,6 +345,19 @@ export default function HomePage() {
             File tools online are usually slow, ad-choked, and ask you to upload personal documents
             to a stranger's server. Nyako runs everything on your own device instead — so it's
             faster, and there's simply nothing of yours for us to lose.
+          </p>
+          <p className="text-text-dim max-w-lg mx-auto leading-relaxed mt-4">
+            That covers everyday jobs like{" "}
+            {CATEGORY_LINKS.map((c, i) => (
+              <span key={c.slug}>
+                <Link to={`/blog/${c.slug}`} className="text-primary hover:underline">
+                  {c.example}
+                </Link>
+                {i < CATEGORY_LINKS.length - 2 ? ", " : i === CATEGORY_LINKS.length - 2 ? ", and " : ""}
+              </span>
+            ))}
+            {" "}— all covered in our <Link to="/blog" className="text-primary hover:underline">guides</Link>{" "}
+            if you want the details behind the tool.
           </p>
         </div>
       </section>
